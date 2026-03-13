@@ -48,6 +48,7 @@ It is important to note the difference between the two IACS Unified Requirements
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **IACS UR E27** (30/41 Capabilities) | **System-Level:** Applies to the security of individual **Computer Based Systems (CBS)** and equipment.                                                                             |
 | **IACS UR E26**                      | **Ship-Level:** Applies to the cyber resilience of the **ship as a whole**, including network segmentation (Zones and Conduits), risk assessment, and incident response procedures. |
+ 
  **Systems connecting to untrusted networks** (interfaces that cross a network boundary to an untrusted zone) must meet the **30 Core Capabilities** plus **11 additional capabilities**, bringing their total to **41** requirements.
  
 ### IACS UR E27 Requirements
