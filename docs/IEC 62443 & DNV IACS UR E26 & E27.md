@@ -103,7 +103,7 @@ It is important to note the difference between the two IACS Unified Requirements
 | 47     | E27 (untrust network) | RE1 Invalidation of session ID       | (IEC 62443-3-3/SR 3.8)
 
 
-As mentioned early, so the dedicated system must meet IACS UR E27's requirements (30 core capabilities) and there is no need to meet the extra 11 extended capabilities because the rack doesn't have any network connection to untrust network or internet.
+As mentioned early, so the dedicated system must meet IACS UR E27's requirements (30 core capabilities) and there is no need to meet the extra 11 extended capabilities because the dedicated system doesn't have any network connection to untrust network or internet.
 
 Testing checklist is available for education and reference only.
 
