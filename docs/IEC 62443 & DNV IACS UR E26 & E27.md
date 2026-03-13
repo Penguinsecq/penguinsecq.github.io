@@ -1,26 +1,24 @@
-Just had a chance to carry on a grey-box network level penetration testing project for marine company in Australia. It's just a small project with 5-6 days of testing but the reason I am writing this blog is want to keep the knowledge in my head as usual.
+Just had a chance to carry on a grey-box network level penetration testing project for a company in Australia. It's just a small project with 5-6 days of testing but the reason I am writing this blog is want to keep the knowledge in my head as usual. Some information will be hidden for privacy of the customer reason.
 
-The project scope is penetration testing for the the network devices which connected with IP network installed in the IPAS rack and no internet connection to the rack at all.
+The project scope is penetration testing for the the network devices connected with IP network in the safety related dedicated system and no internet connection to this closed system at all. 
 
-Additionally, IPAS (Intelligence Public Address System for Marine) rack is separated from the vessels or ships network system. So, I and team don't need to worry about it. 
+Additionally, the dedicated system is separated at all from the location that it will be installed. So, I and team don't need to worry about the location network environment. 
 
-I will categorize the network devices installed on the separated 1U rack as followings:
+I will categorize the network devices installed on the dedicated system as followings:
 
-###### 1. Main IPAS system including:
-- PA/GA (Public Address and General Alarms) 
-	- PA is an electronic sound amplification and distribution system designed to make voices, music or recorded audio audible to a large audience or over a wide area.
-	- GA (general alarm) is the primary emergency signal on the ship. It alerts all crew and passengers to aware that a major emergency events has occured.
-- Entertainment distribution devices such as Media Player, IP Decoder, HDMI Transmitter
-- Audio and Video equipment, 
-- SOLAS, IMO and HSC 
+###### 1. Main safety related dedicated system including:
+- XXX (intentionally hidden)
+- YYY (intentionally hidden)
+- ZZZ (intentionally hidden)
+	
 ###### 2. IP Network devices including:
 - Mikrotik switch and Firewall, 
 - Unifi AP, and clients (iPad)
 - Small Windows computer.
 
-**Because I don't know the exact reason why customer want to do penetration testing for the rack. So this blog is my opinion only. As the IPAS rack will be installed on ships, vessels, and the PA system is treated as safety equipment used for emergency evacuation on ships, which is regulated. So, they need to comply with some regulation or standard and get certified before they can sell it as a commercial product.**
+**Because I don't know the exact reason why the customer need to do penetration testing for the this dedicated system. So this blog is my opinion only. As the dedicated system will be installed on (hidden location) and the system is treated as safety equipment used for (hidden) which is regulated. So, they need to comply with some regulation or standard and get certified before they can sell it as a commercial product.**
 
-At the beginning, the customer provide my boss with bullets of testing requirement generated from ChatGPT which summarise the cybersecurity requirements from DNV class society which based on the DNV Cyber secure (Essential SP1). They did this because they don't have any idea about doing the cyber testing.
+At the beginning, the customer provide with bullets of testing requirement generated from ChatGPT which summarise the cybersecurity requirements from (hidden organisation) society which based on the cyber security standard. They did this because they don't have any idea about doing the cyber testing.
 
 I had to request the documents relating to the standard and research more on the internet for the followings:
 - DNV Cyber Secure 
@@ -104,7 +102,7 @@ It is important to note the difference between the two IACS Unified Requirements
 | 47     | E27 (untrust network) | RE1 Invalidation of session ID       | (IEC 62443-3-3/SR 3.8)
 
 
-As mentioned early, so the IPAS rack must meet IACS UR E27's requirements (30 core capabilities) and there is no need to meet the extra 11 extended capabilities because the rack doesn't have any network connection to untrust network or internet.
+As mentioned early, so the dedicated system must meet IACS UR E27's requirements (30 core capabilities) and there is no need to meet the extra 11 extended capabilities because the rack doesn't have any network connection to untrust network or internet.
 
 Testing checklist is available for education and reference only.
 
