@@ -2,92 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Blocking URLs in MS365</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 40px;
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    .section {
-      margin-bottom: 30px;
-    }
-    .images img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      padding: 5px;
-    }
-    .note {
-      background: #f8f9fa;
-      padding: 10px;
-      border-left: 4px solid #007acc;
-      margin: 10px 0;
-    }
-  </style>
+  <title>MS365 URL Blocking Guide</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Blocking Specific URLs in MS365</h1>
+<div class="container">
 
-<p>
-This is my summary experience for blocking specific URLs in MS365.
-</p>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <h2>MS365 Guide</h2>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#device">Device-based</a></li>
+      <li><a href="#user">User-based</a></li>
+      <li><a href="#reference">Reference</a></li>
+    </ul>
+  </nav>
 
-<div class="section">
-  <p>
-  The first thing you may have to decide is a suitable method for your situation and environment,
-  because there are 2 methods as follows:
-  </p>
-</div>
+  <!-- Content -->
+  <main class="content">
 
-<div class="section">
-  <h2>1. Device-based</h2>
+    <h1 id="overview">Blocking Specific URLs in MS365</h1>
+    <p>This is my summary experience for blocking specific URLs in MS365.</p>
 
-  <h3>1.1 Using Microsoft Defender for Endpoint (MDE)</h3>
+    <p>
+      The first thing you need to decide is the most suitable method for your environment.
+      There are two main approaches:
+    </p>
 
-  <p>
-  With web content filtering or indicators, you can block or allow any <strong>onboarded devices</strong>
-  from accessing applications, URLs, domains, or IP addresses as shown below.
-  </p>
+    <ul>
+      <li>Device-based</li>
+      <li>User-based</li>
+    </ul>
 
-  <div class="note">
-    However, you need the appropriate license (not confirmed at the moment) to select specific devices
-    to apply the policy. If you don't have the proper license, you can still apply "Indicators" or
-    "Web content filtering" to all devices only.
-  </div>
+    <h2 id="device">1. Device-based</h2>
+    <h3>Using Microsoft Defender for Endpoint (MDE)</h3>
 
-  <h3>Indicator</h3>
-  <div class="images">
-    <img src="../images/1.png" alt="Indicator screenshot 1">
-    <img src="../images/2.png" alt="Indicator screenshot 2">
-  </div>
+    <p>
+      With web content filtering or indicators, you can block or allow any
+      <strong>onboarded devices</strong> from accessing applications, URLs,
+      domains, or IP addresses.
+    </p>
 
-  <h3>Web Content Filtering</h3>
-  <div class="images">
-    <img src="../images/3.png" alt="Web filtering screenshot 1">
-    <img src="../images/4.png" alt="Web filtering screenshot 2">
-  </div>
-</div>
+    <div class="callout">
+      You may need the appropriate license to apply policies to specific devices.
+      Without it, policies may apply to all devices only.
+    </div>
 
-<div class="section">
-  <h2>2. User-based</h2>
-  <p>
-  (Add your content here)
-  </p>
-</div>
+    <h3>Indicator</h3>
+    <div class="image-group">
+      <img src="images/1.png">
+      <img src="images/2.png">
+    </div>
 
-<div class="section">
-  <h2>Reference</h2>
-  <p>
-    <a href="https://www.anoopcnair.com/block-urls-on-google-chrome-and-microsoft-edge/" target="_blank">
-      Block URLs on Chrome and Edge
-    </a>
-  </p>
+    <h3>Web Content Filtering</h3>
+    <div class="image-group">
+      <img src="images/3.png">
+      <img src="images/4.png">
+    </div>
+
+    <h2 id="user">2. User-based</h2>
+    <p>(Add your content here)</p>
+
+    <h2 id="reference">Reference</h2>
+    <p>
+      <a href="https://www.anoopcnair.com/block-urls-on-google-chrome-and-microsoft-edge/" target="_blank">
+        Block URLs on Chrome and Edge
+      </a>
+    </p>
+
+  </main>
+
 </div>
 
 </body>
