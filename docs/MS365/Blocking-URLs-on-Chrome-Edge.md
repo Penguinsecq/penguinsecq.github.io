@@ -1,4 +1,4 @@
-<img width="1527" height="586" alt="image" src="https://github.com/user-attachments/assets/f2329b3f-15be-4214-9084-08e1085732a7" />This is my summary experience for blocking specific URLs in MS365.
+This is my summary experience for blocking specific URLs in MS365.
 
 The first thing you may have to decide a suitable method for your situation and environment because there are 2 method as the followings:
 1. Devices based
