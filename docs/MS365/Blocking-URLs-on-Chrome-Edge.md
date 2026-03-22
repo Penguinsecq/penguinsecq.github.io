@@ -5,12 +5,12 @@ The first thing you may have to decide a suitable method for your situation and 
     1.1 Using MDE (Microsoft Defender for Endpoint), with the web content filtering or indicators you can block or allow any **onboarded devices** from accessing application, URLs, Domain, IP addresses as shown below.
         However, you need the applicable license (not sure at the moment) to be able to select specific devices to apply the policy. If you don't have the proper license, you can still apply the "Indicator" or "Web content filtering" to all devices only.
    
-<b>Indicator</b>    
+###Indicator    
 ![pic1](../images/1.png)
 ![pic2](../images/2.png)
 
 
-<b>Web content filtering</b>
+###Web content filtering
 ![pic3](../images/3.png)
 ![pic4](../images/4.png)
 
