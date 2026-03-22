@@ -6,8 +6,8 @@ The first thing you may have to decide a suitable method for your situation and 
         However, you need the applicable license (not sure at the moment) to be able to select specific devices to apply the policy. If you don't have the proper license, you can still apply the "Indicator" or "Web content filtering" to all devices only.
    
 Indicator
-![pic1](/penguinsecq.github.io/docs/images/1.png)
-![pic2](/penguinsecq.github.io/docs/images/2.png)
+![pic1](../images/1.png)
+![pic2](../images/2.png)
 
 
 Web content filtering
