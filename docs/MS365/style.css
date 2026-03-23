@@ -1,7 +1,20 @@
+/* Base */
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f5f7fa;
+  background: #ffffff;
+  color: #1f1f1f;
+}
+
+/* Top bar */
+.topbar {
+  height: 50px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: 600;
+  background: #ffffff;
 }
 
 /* Layout */
@@ -11,17 +24,18 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
-  background: #1f2937;
-  color: white;
-  height: 100vh;
+  width: 260px;
+  border-right: 1px solid #e5e5e5;
   padding: 20px;
-  position: fixed;
+  height: calc(100vh - 50px);
+  position: sticky;
+  top: 50px;
+  background: #fafafa;
 }
 
 .sidebar h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .sidebar ul {
@@ -34,47 +48,66 @@ body {
 }
 
 .sidebar a {
-  color: #cbd5e1;
   text-decoration: none;
+  color: #333;
+  font-size: 14px;
 }
 
 .sidebar a:hover {
-  color: white;
+  color: #0078d4;
 }
 
 /* Content */
 .content {
-  margin-left: 270px;
   padding: 40px;
   max-width: 900px;
 }
 
 h1 {
   font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 h2 {
-  margin-top: 30px;
-  border-bottom: 1px solid #ddd;
+  margin-top: 40px;
+  font-size: 24px;
+  border-bottom: 1px solid #e5e5e5;
   padding-bottom: 5px;
 }
 
 h3 {
-  margin-top: 20px;
+  margin-top: 25px;
+  font-size: 18px;
 }
 
-/* Callout box */
+h4 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* Callout */
 .callout {
-  background: #e0f2fe;
-  border-left: 5px solid #0284c7;
+  background: #eef6fc;
+  border-left: 4px solid #0078d4;
   padding: 15px;
   margin: 20px 0;
 }
 
 /* Images */
 .image-group img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
   margin: 10px 0;
   border-radius: 6px;
   border: 1px solid #ddd;
+}
+
+/* Links */
+a {
+  color: #0078d4;
+}
+
+a:hover {
+  text-decoration: underline;
 }
