@@ -111,3 +111,27 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+th {
+  text-align: left;
+  background: #f3f2f1;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+tr:nth-child(even) {
+  background: #fafafa;
+}
