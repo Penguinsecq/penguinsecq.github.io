@@ -90,14 +90,30 @@
     
     <h2 id="user">Filter Format used for the URL list-base policies </h2>
     <table>
-    <tr>
-      <td>Row 1, Cell 1</td>
-      <td>Row 1, Cell 2</td>
-    </tr>
-    <tr>
-      <td>Row 2, Cell 1</td>
-      <td>Row 2, Cell 2</td>
-    </tr>
+      <tr>
+        <th>Syntax</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>*</td>
+        <td>Wildcard (any characters)</td>
+      </tr>
+      <tr>
+        <td>[*.]</td>
+        <td>All subdomains</td>
+      </tr>
+      <tr>
+        <td><code>example.com</code></td>
+        <td>Exact domain</td>
+      </tr>
+      <tr>
+        <td><code>example.com/path</code></td>
+        <td>Specific path</td>
+      </tr>
+      <tr>
+        <td>*://</td>
+        <td>Any protocol</td>
+      </tr>
     </table>
 
     
