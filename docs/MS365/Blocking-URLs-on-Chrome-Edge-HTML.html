@@ -110,14 +110,24 @@
       <tr>
         <td><code>example.com</code></td>
         <td>Exact domain</td>
+        <td>http://example.com<br>
+            https://example.com</td>
       </tr>
       <tr>
         <td><code>example.com/path</code></td>
         <td>Specific path</td>
+        <td>https://example.com/path<br>
+            https://example.com/path/abc</td>
       </tr>
       <tr>
         <td>*://</td>
         <td>Any protocol</td>
+      </tr>
+      <tr>
+        <td>badsite</td>
+        <td>block keyword in URL</td>
+        <td>https://abc.com/badsite</td>
+        <td>https://badsite.com</td>
       </tr>
     </table>
     <br>
