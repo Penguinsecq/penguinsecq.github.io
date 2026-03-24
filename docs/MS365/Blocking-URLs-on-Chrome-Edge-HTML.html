@@ -93,6 +93,7 @@
       <tr>
         <th>Syntax</th>
         <th>Meaning</th>
+        <th>Example (will block)</th>
       </tr>
       <tr>
         <td>*</td>
@@ -101,6 +102,10 @@
       <tr>
         <td>[*.]</td>
         <td>All subdomains</td>
+        <td>example.com<br>
+            www.example.com<br>
+            mail.example.com<br>
+            anything.example.com</td>
       </tr>
       <tr>
         <td><code>example.com</code></td>
@@ -115,11 +120,13 @@
         <td>Any protocol</td>
       </tr>
     </table>
+    <br>
     
+    <h3>Example</h3>
     <h4>Block entire domain</h4>
-    <p>example.com</p> will block 
-      <li>http://example.com</li>
-      <li>https://example.com</li>
+    <p>example.com</p> will block: 
+      http://example.com
+      https://example.com
 
     <h4>Block domain + all subdomains</h4>
     <p>[*.]example.com</p> will block 
