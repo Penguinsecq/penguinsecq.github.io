@@ -42,7 +42,7 @@
 
 <body>
 
-<h1>Windows System Files Checking</h1>	
+<h1><u>Windows System Files Checking</u></h1>	
 
 <h2>Check the Health of Windows System files</h2>
  <p>We are first going to do a quick scan of the Windows system:</p>	
@@ -60,7 +60,7 @@
 <p>Run the command below to repair the files:</p>
 <pre><code>sfc /scannow</code></pre>
 
-<h1>Free up disk space with DISM</h1>
+<h1><u>Free up disk space with DISM</u></h1>
 
 <h2>Analyze the Component Store</h2>
 <p>The first step is to analyze the Windows Update component store. The command below will go through all the update files to see what can be removed.</p><br>
@@ -85,7 +85,7 @@
 <a href="https://lazyadmin.nl" target="_blank"> https://lazyadmin.nl</a>
 
 
-<h1>Users management</h1>	
+<h1><u>Users management</u></h1>	
 <p>Set Password expire</p>
 <pre><code>wmic UserAccount where Name="user name" set PasswordExpires=False</code></pre>
 
@@ -93,7 +93,7 @@
 <pre><code>wmic UserAccount where Name="user name" set disabled=True</code></pre>
 <pre><code>Net user "username" /active:no</code><pre>
 
-<h1>Program management</h1>	
+<h1><u>Program management</u></h1>	
 <p>View installed apps</p>
 <pre><code>`Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -ne $null } | Select-Object DisplayName, Publisher, InstallDate | Sort-Object InstallDate -Descending | Format-Table –AutoSize</code></pre>
 	
