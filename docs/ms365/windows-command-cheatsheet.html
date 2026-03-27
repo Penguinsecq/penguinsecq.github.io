@@ -42,48 +42,41 @@
 
 <body>
 <h2>Check the Health of Windows System files</h2>
-
  <p>We are first going to do a quick scan of the Windows system:</p>	
  <pre><code>DISM /Online /Cleanup-Image /CheckHealth </code></pre> 
 
-Advanced system scan 
-
-  The next step is to do a more advanced system. ScanHealth will check the component store and report any corruption in the log file: C:\Windows\Logs\CBS\CBS.log
-
-  DISM /Online /Cleanup-Image /ScanHealth
+<h2>Advanced system scan</h2> 
+ <p>The next step is to do a more advanced system. ScanHealth will check the component store and report any corruption in the log file: C:\Windows\Logs\CBS\CBS.log</p>
+ <pre><code>DISM /Online /Cleanup-Image /ScanHealth</code></pre>	
 	
+<h2>Repair Windows with DISM Online Cleanup Image Restorehealth</h2>
+<p>When the ScanHealth or CheckHealth commands found any corruption then we can repair it with the RestoreHealth command:</p>
+<pre><code>	DISM /Online /Cleanup-Image /RestoreHealth </code></pre>
 
-Repair Windows with DISM Online Cleanup Image Restorehealth 
+<h2>Repair the current Windows Installation</h2>
+<p>Run the command below to repair the files:</p>
+<pre><code>sfc /scannow</code></pre>
 
-	When the ScanHealth or CheckHealth commands found any corruption then we can repair it with the RestoreHealth command:
+<h1>Free up disk space with DISM</h1>
 
-	DISM /Online /Cleanup-Image /RestoreHealth
-
-
-Repair the current Windows Installation
-
-Run the command below to repair the files:
-sfc /scannow
-
-
-
-Free up disk space with DISM
-
-Analyze the Component Store
-The first step is to analyze the Windows Update component store. The command below will go through all the update files to see what can be removed.
-	1. Right-click on start (or press Windows key + X)
-	2. Choose Windows PowerShell (admin) or Windows Terminal (admin)
-	3. Enter the command below:
-Dism /Online /Cleanup-Image /AnalyzeComponentStore
+<h2>Analyze the Component Store</h2>
+<p>The first step is to analyze the Windows Update component store. The command below will go through all the update files to see what can be removed.</p><br>
+<p> 
+	1. Right-click on start (or press Windows key + X)<br>
+	2. Choose Windows PowerShell (admin) or Windows Terminal (admin)<br>
+	3. Enter the command below:<br>
+</p>	
+<pre><code>Dism /Online /Cleanup-Image /AnalyzeComponentStore</code></pre>
 
 
-Cleanup old files manually
+<h2>Cleanup old files manually</h2>
 
-On Windows 10 you might not get the option to restart your computer. In this case, we will need to start the clean-up manually with the command below:
-Dism /Online /Cleanup-Image /StartComponentCleanup
-Once completed use the command below to reduce the size even further:
-Dism /Online /Cleanup-Image /StartComponentCleanup /ResetBase
-The ResetBase command can take some time, just let it complete.
+<p>On Windows 10 you might not get the option to restart your computer. In this case, we will need to start the clean-up manually with the command below:</p>
+<pre><code>Dism /Online /Cleanup-Image /StartComponentCleanup</code></pre>
+	
+<p>Once completed use the command below to reduce the size even further:</p>
+<pre><code>Dism /Online /Cleanup-Image /StartComponentCleanup /ResetBase</code></pre>
+<p>The ResetBase command can take some time, just let it complete.</p>
 
 
 Reference:
