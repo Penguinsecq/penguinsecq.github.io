@@ -1,9 +1,7 @@
-Check the Health of Windows System files 
+<h2>Check the Health of Windows System files</h2>
 
-  We are first going to do a quick scan of the Windows system:
-
-  DISM /Online /Cleanup-Image /CheckHealth
-
+ <p>We are first going to do a quick scan of the Windows system:</p>	
+ <pre><code>DISM /Online /Cleanup-Image /CheckHealth </code></pre> 
 
 Advanced system scan 
 
