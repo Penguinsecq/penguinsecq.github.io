@@ -21,8 +21,6 @@ Repair Windows with DISM Online Cleanup Image Restorehealth
 
 Repair the current Windows Installation
 
-From <https://lazyadmin.nl/it/dism-command/> 
-
 Run the command below to repair the files:
 sfc /scannow
 
