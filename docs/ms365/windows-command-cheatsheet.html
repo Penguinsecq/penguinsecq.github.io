@@ -82,8 +82,19 @@
 <p>The ResetBase command can take some time, just let it complete.</p>
 
 
+<h1>Users management</h1>	
+<p>Set Password expire</p>
+`wmic UserAccount where Name="user name" set PasswordExpires=False`
+
+<p>Disable user</p>
+<pre><code>wmic UserAccount where Name="user name" set disabled=True</code></pre>
+<pre><code>`Net user "username" /active:no`</code><pre>
+	
 <h3>Reference</h3>
 <a href="https://lazyadmin.nl" target="_blank"> https://lazyadmin.nl</a>
+
+
+
 
 </body>
 </html>
