@@ -87,11 +87,11 @@
 
 <h1>Users management</h1>	
 <p>Set Password expire</p>
-wmic UserAccount where Name="user name" set PasswordExpires=False
+<pre><code>wmic UserAccount where Name="user name" set PasswordExpires=False</code></pre>
 
 <p>Disable user</p>
 <pre><code>wmic UserAccount where Name="user name" set disabled=True</code></pre>
-<pre><code>`Net user "username" /active:no</code><pre>
+<pre><code>Net user "username" /active:no</code><pre>
 
 <h1>Program management</h1>	
 <p>View installed apps</p>
