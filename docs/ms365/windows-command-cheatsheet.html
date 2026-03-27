@@ -95,18 +95,15 @@
 
 <h1><u>Program management</u></h1>	
 <p>View installed apps</p>
-<pre><code>Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -ne $null } | Select-Object DisplayName, Publisher, InstallDate | Sort-Object InstallDate -Descending | Format-Table –AutoSize</code></pre>
-	
+<pre><code>Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -ne $null } | Select-Object DisplayName, Publisher, InstallDate | Sort-Object InstallDate -Descending | Format-Table –AutoSize</code></pre><br>
+
+
 <p>To search all installed programs</p>
-<pre><code>$product get name</code></pre>
+<pre><code>$product get name</code></pre><br>
 
 <p>To search specific installed program</p>
 <pre><code>$ product where "Name like '%space%'" get name</code></pre>
 	
-
-
-
-
 
 </body>
 </html>
