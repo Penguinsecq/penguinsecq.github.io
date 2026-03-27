@@ -1,3 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exchange Online Forwarding Guide</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      color: #333;
+    }
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid #ddd;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+    blockquote {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 10px 15px;
+      margin: 20px 0;
+    }
+    ul {
+      margin: 10px 0 20px 20px;
+    }
+    a {
+      color: #0366d6;
+    }
+  </style>
+</head>
+
+<body>
 <h2>Check the Health of Windows System files</h2>
 
  <p>We are first going to do a quick scan of the Windows system:</p>	
@@ -47,3 +90,5 @@ Reference:
 https://lazyadmin.nl
 
 <img width="730" height="1195" alt="image" src="https://github.com/user-attachments/assets/82769f4e-8521-4a94-9939-dbc494ac6a64" />
+</body>
+</html>
