@@ -102,5 +102,67 @@
 <p>To search specific installed program</p>
 <pre><code>$ product where "Name like '%space%'" get name</code></pre>
 
+<h1><u>Schedule Tasks</u></h1>
+Interesting website: <a href="https://lazyadmin.nl/powershell/how-to-create-a-powershell-scheduled-task/#use-task-scheduler-to-run-a-powershell-script" target="_blank"> https://lazyadmin.nl/powershell/how-to-create-a-powershell-scheduled-task/#use-task-scheduler-to-run-a-powershell-script
+
+<p>List all tasks</p>
+<pre><code>Get-ScheduledTask</code></pre>
+
+<p>List detailed info</p>
+<pre><code>Get-ScheduledTask | Get-ScheduledTaskInfo</code></pre>
+
+<p>View Details runtime info</p>
+<pre><code>Get-ScheduledTaskInfo -TaskName "Schedule to Collect AppLocker logs" -TaskPath "\AppLockerTasks\"</code></pre>
+
+<p>See Action Details</p>
+<pre><code>(Get-ScheduledTask -TaskName "Schedule to Collect AppLocker logs" -TaskPath "\AppLockerTasks\").Actions | Format-List *</code></pre>
+
+<p>Run task immediately</p>
+<pre><code>Start-ScheduledTask -TaskName "DailyBackup"</code></pre>
+
+<p>Stop running task</p>
+<pre><code>Stop-ScheduledTask -TaskName "DailyBackup"</code></pre>
+
+<p>Delete task</p>
+<pre><code>Unregister-ScheduledTask -TaskName "DailyBackup" -Confirm:$false</code></pre>
+
+<p>Disable / Enable task</p>
+<pre><code>
+Disable-ScheduledTask -TaskName "DailyBackup"  
+Enable-ScheduledTask -TaskName "DailyBackup"
+</code></pre>
+	
+<p>Export as XML</p>
+<pre><code>Export-ScheduledTask -TaskName "Schedule to Collect AppLocker logs" -TaskPath "\AppLockerTasks\"	</code></pre>
+
+<p>Example schedule task</p>
+
+<pre><code>	
+<p><i>#Remove existing task if it exists</i></p>
+if (Get-ScheduledTask -TaskName 'Schedule to Collect AppLocker logs' -TaskPath '\AppLockerTasks\' -ErrorAction SilentlyContinue) {
+    Unregister-ScheduledTask -TaskName 'Schedule to Collect AppLocker logs' -TaskPath '\AppLockerTasks\' -Confirm:$false
+}
+
+<p><i># Trigger at 11AM every Wed and Fri</i></p>
+$taskTrigger = New-ScheduledTaskTrigger `
+    -Weekly `
+    -DaysOfWeek Monday, Wednesday, Friday `
+    -At 11:00AM
+
+$taskAction = New-ScheduledTaskAction `
+    -Execute "PowerShell.exe" `
+    -Argument "-NoProfile -ExecutionPolicy Bypass -Command `"& 'C:\Windows\ExportAppLockerLogs2.ps1' *> 'C:\AppLockerLogs\debug.txt'`""
+
+$Principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+$Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
+
+if (-not (Test-Path "C:\Windows\ExportAppLockerLogs2.ps1")) {
+    Write-Error "Script not found."
+    exit 1
+}
+
+Register-ScheduledTask -TaskName 'Schedule to Collect AppLocker logs' -TaskPath '\AppLockerTasks\' -Action $taskAction -Trigger $taskTrigger -Principal $Principal -Settings $Settings -Force
+</code></pre>
+	
 </body>
 </html>
