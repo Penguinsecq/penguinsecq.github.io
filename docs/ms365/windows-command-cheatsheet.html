@@ -92,8 +92,8 @@
 <p>Disable user</p>
 <pre><code>wmic UserAccount where Name="user name" set disabled=True</code></pre>
 
-<!--<pre><code>Net user "username" /active:no</code><pre>
-
+<pre><code>Net user "username" /active:no</code><pre>
+!--
 <h1><u>Program management</u></h1>	
 <p>View installed apps</p>
 <pre><code>Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -ne $null } | Select-Object DisplayName, Publisher, InstallDate | Sort-Object InstallDate -Descending | Format-Table –AutoSize</code></pre><br>
