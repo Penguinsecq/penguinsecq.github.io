@@ -94,20 +94,6 @@
 <pre><code>Net user "username" /active:no</code></pre>
 
 
-<h1><u>Services management</u></h1>	
-<pre<code>sc.exe query AppIDSvc
-
-sc.exe qc "AppIDSvc"
-
-sc.exe config "AppIDSvc" start=auto & net start "AppIDSvc"
-
-Get-Service -Name AppIDSvc
-
-Get-Service -Name "AppIDSvc" | Select-Object Name, StartType
-
-Set-Service -Name "Spooler" -StartupType Automatic
-</pre></code>
-	
 <h1><u>Program management</u></h1>	
 <p>View installed apps</p>
 <pre><code>Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -ne $null } | Select-Object DisplayName, Publisher, InstallDate | Sort-Object InstallDate -Descending | Format-Table –AutoSize</code></pre>
@@ -117,6 +103,21 @@ Set-Service -Name "Spooler" -StartupType Automatic
 <p>To search specific installed program</p>
 <pre><code>$ product where "Name like '%space%'" get name</code></pre>
 
+<h1><u>Services management</u></h1>	
+<pre<code>sc.exe query AppIDSvc<br>
+
+sc.exe qc "AppIDSvc"<br>
+
+sc.exe config "AppIDSvc" start=auto & net start "AppIDSvc"<br>
+
+Get-Service -Name AppIDSvc<br>
+
+Get-Service -Name "AppIDSvc" | Select-Object Name, StartType<br>
+
+Set-Service -Name "Spooler" -StartupType Automatic<br>
+</pre></code>
+
+	
 <h1><u>Schedule Tasks</u></h1>
 Interesting website: <a href="https://lazyadmin.nl/powershell/how-to-create-a-powershell-scheduled-task/#use-task-scheduler-to-run-a-powershell-script" target="_blank"> https://lazyadmin.nl/powershell/how-to-create-a-powershell-scheduled-task/#use-task-scheduler-to-run-a-powershell-script
 </a>
