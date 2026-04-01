@@ -104,18 +104,16 @@
 <pre><code>$ product where "Name like '%space%'" get name</code></pre>
 
 <h1><u>Services management</u></h1>	
+<p>Query service info</p>
 <pre><code>sc.exe query AppIDSvc</pre></code>
-
 <pre><code>sc.exe qc "AppIDSvc"</code></pre>
-
-<pre><code>sc.exe config "AppIDSvc" start=auto & net start "AppIDSvc"</code></pre>
-
 <pre><code>Get-Service -Name AppIDSvc</code></pre>
+<pre><code>Get-Service -Name "AppIDSvc" | Select-Object Name, StartType</code></pre>
 
-<pre><code>Get-Service -Name "AppIDSvc" | Select-Object Name, StartType<br></code></pre>
+<p>Config the service</p>
+<pre><code>sc.exe config "AppIDSvc" start=auto & net start "AppIDSvc"</code></pre>
+<pre><code>Set-Service -Name "Spooler" -StartupType Automatic</pre></code>
 
-<pre><code>Set-Service -Name "Spooler" -StartupType Automatic<br>
-</pre></code>
 
 	
 <h1><u>Schedule Tasks</u></h1>
