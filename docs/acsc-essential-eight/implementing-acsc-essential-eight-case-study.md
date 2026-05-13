@@ -17,7 +17,7 @@ https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/esse
 
 I went through the assessment process guide, accumulate the assessment guidance information to **create a comprehensive checklist (excel file)**. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I **initiated the simple asset management process, and created the register** using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I **create the list of standard user accounts and privilege users** in MS365, Network devices, and third-party web application that the organisation have used.
 
-I started conducting the assessment on all in-scoped system by reviewing the existence of processes, effectiveness of controls, documents and reports, etc. Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. 
+I started conducting the assessment on all in-scoped system by reviewing the existence of processes, effectiveness of controls, documents and reports, etc. Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I ended up found many security gaps which I am sharing here for some issues. It might be useful.
 
 
 Remediation Case study 1 - MFA gaps
