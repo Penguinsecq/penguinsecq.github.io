@@ -24,6 +24,7 @@ I started conducting the assessment on all in-scoped system by
 - Vulnerability scanning
 - Interviewing and surveys.
 - etc.
+
 Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I ended up found many security gaps which I am sharing here for some issues. It might be useful.
 
 
