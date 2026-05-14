@@ -32,4 +32,8 @@ I found that MFA is not enforced for all some users. I created conditional acces
 
 ![MFA Conditional Access Policy](https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png)
 
-However, a couple of users still need to be excluded because of the technical constraints. Therefore,
+However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. I created,
+- A Named locations, added all legit IP Address, I am talking about the IP Address that I have verified that it is the actual ip address of the account
+- A new conditional access policy which allow them to sign-in only from the location above.
+
+With the ip filtering above, risk is mitigated.
