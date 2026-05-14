@@ -27,12 +27,14 @@ I started conducting the assessment on all in-scoped system by
 
 Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I sent the detaild finding report with executive summary to the client. The followings are the implementation challenges that I want to keep and share as valuable experience. Hope, it might be useful.
 
-Case study 1 - Multi-factor authentication issue
+**Case study 1 - Multi-factor authentication issue**
 I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA. 
 
 ![MFA Conditional Access Policy](https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png)
 
 However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. I created,
+
+**Mitigation**
 - A Named locations, added all legit IP Address, I am talking about the IP Address that I have verified that it is the actual ip address of the account
 - A new conditional access policy which allow them to sign-in only from the location above.
 
