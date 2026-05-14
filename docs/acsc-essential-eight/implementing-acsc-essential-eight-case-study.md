@@ -27,4 +27,9 @@ I started conducting the assessment on all in-scoped system by
 
 Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I sent the detaild finding report with executive summary to the client. The followings are the implementation challenges that I want to keep and share as valuable experience. Hope, it might be useful.
 
-Remediation Case study 1 - MFA gaps
+Case study 1 - Multi-factor authentication issue
+I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA. 
+
+[insert picture of CAP]
+
+However, a couple of users still need to be excluded because of the technical constraints. Therefore,
