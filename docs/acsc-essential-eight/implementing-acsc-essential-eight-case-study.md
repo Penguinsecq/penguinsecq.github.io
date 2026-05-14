@@ -25,7 +25,6 @@ I started conducting the assessment on all in-scoped system by
 - Interviewing and surveys.
 - etc.
 
-Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I ended up found many security gaps which I am sharing here for some issues. It might be useful.
-
+Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I sent the detaild finding report with executive summary to the client. The followings are the implementation challenges that I want to keep and share as valuable experience. Hope, it might be useful.
 
 Remediation Case study 1 - MFA gaps
