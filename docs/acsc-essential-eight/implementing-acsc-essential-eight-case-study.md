@@ -30,6 +30,6 @@ Any assessment evidences, limitataions, screenshots and constraints on testing w
 Case study 1 - Multi-factor authentication issue
 I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA. 
 
-![Alt Text] https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/images/cap-mfa1.png
+![MFA Conditional Access Policy] https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png
 
 However, a couple of users still need to be excluded because of the technical constraints. Therefore,
