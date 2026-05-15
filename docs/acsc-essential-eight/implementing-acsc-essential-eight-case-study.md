@@ -35,8 +35,8 @@ I found that MFA is not enforced for all some users. I created conditional acces
 However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. The followings condition could be applied depending on your environment:
 
 **Mitigation**
--Device compliant/
--Location filtering such as ip address/
--Device ID filtering but device registering is required/
+-Device compliant  
+-Location filtering such as ip address  
+-Device ID filtering but device registering is required  
 
 With the filtering above, risk is mitigated.
