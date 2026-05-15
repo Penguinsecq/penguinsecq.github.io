@@ -44,7 +44,7 @@ However, a couple of users still need to be excluded because of a requirement an
 <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-device-filter.png" alt="Device filter in Conditional access policy" style="border: 1px solid grey;">
 </div><br>
 
-With the filtering above, risk is mitigated.<br>
+With the filterings above, risk is mitigated.<br>
 
 **Case study 2 - Restrict Admin Privilege issue**
 
