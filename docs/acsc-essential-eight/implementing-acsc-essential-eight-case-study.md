@@ -59,3 +59,17 @@ This is why the asset register, third-party application and user accounts list a
 - Where the privileged user to be used,
 - which systems got accessed by the privileged user (I will talk about this in next article)
 
+**Implementation**<br>
+- Create Privilege Access Management Request Procedure document.
+- I used Microsoft Forms to create a Privilege access request form. Actually, you can utilise the Privilege Access Management in MS365 for this issue if you have a required license (Microsoft 365 E5 (no Teams), Office 365 E5, Microsoft 365 F5).
+- Remove all local administrator user.
+- After reviewing, remove unnecessary MS365 administrative users. 
+- Create new user for Intune enrollment only, not Global admin anymore.
+- Create policy to prohibit MS365 global admin user to access or logon to any Entra joined workstation
+
+<div align="center">
+<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/pam-procedures.png" alt="Privilege Access Management process" style="border: 1px solid grey;">
+</div><br>
+
+
+
