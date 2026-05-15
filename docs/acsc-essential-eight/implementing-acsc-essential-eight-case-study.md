@@ -30,16 +30,18 @@ Any assessment evidences, limitataions, screenshots and constraints on testing w
 **Case study 1 - Multi-factor authentication issue**
 I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA. 
 
-<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png" alt="MFA Conditional Access Policy" style="border: 2px solid grey;">
-
+<div align="center">
+<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png" alt="MFA Conditional Access Policy" style="border: 1px solid grey;">
+</div>
 However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. The followings condition could be applied depending on your environment:
 
 **Mitigation**<br>
 -Device compliant<br>
 -Location filtering such as ip address<br>
 -Device ID filtering but device registering is required<br>
-![Device filter in Conditional access policy](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/images/cap-device-filter.png)
-
+<div align="center">
+<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-device-filter.png" alt="Device filter in Conditional access policy" style="border: 1px solid grey;">
+</div>
 
 With the filtering above, risk is mitigated.
 
