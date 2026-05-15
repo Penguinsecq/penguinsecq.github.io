@@ -9,10 +9,13 @@ Environment and Scope of Assessment:
 - Medium-sized organization
 - Target: Maturity level 1
 - Microsoft 365 cloud-first
-- On-prem network devices and third-party applications
+- On-prem network devices
+- Third-party applications
 - Microsoft Intune endpoint management
 
-I was a system administrator (outsource), I started with researching information from ASD website below:
+I am not focusing about Windows platform only. I wanted to take this opportunity to improve this organisation cybersecurity posture in overall, and wanted to initiate the cybersecurity standard for them, and my team members who also were the outsource staffs. because I found that their system can be improved.
+
+Background, I was both a system administrator and security (outsource), I started with researching information from ASD website below:
 https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight
 
 I went through the assessment process guide, accumulate the assessment guidance information to **create a comprehensive checklist (excel file)**. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I **initiated the simple asset management process, and created the register** using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I **create the list of standard user accounts and privilege users** in MS365, Network devices, and third-party web application that the organisation have used.
