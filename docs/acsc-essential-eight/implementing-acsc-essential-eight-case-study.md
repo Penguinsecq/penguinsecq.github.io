@@ -18,7 +18,7 @@ I am not focusing about Windows platform only, I wanted to take this opportunity
 Background, I was both a system administrator and security (outsource), I started with researching information from ASD website below:
 https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight
 
-I went through the assessment process guide, accumulate the assessment guidance information to **create a comprehensive checklist (excel file)**. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I **initiated the simple asset management process, and created the register** using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I **create the list of standard user accounts and privilege users** in MS365, Network devices, and third-party web application that the organisation have used.
+I went through the assessment process guide, accumulate the assessment guidance information to **create a comprehensive checklist (excel file)**. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I **initiated the simple asset management process, and created the asset register** using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I **create the list of standard user accounts and privilege users** in MS365, Network devices, and third-party web application that the organisation have used.
 
 I started conducting the assessment on all in-scoped system by 
 - Reviewing the existence of processes,
@@ -51,4 +51,6 @@ With the filterings above, risk is mitigated.<br>
 
 **Case study 2 - Restrict Admin Privilege issue**
 
+There is no documented and approved list of privileged accounts, processes and procedures that outline the requirements for provisioning privileged accounts. Also, a privileged MS365 users have accessed some users’ workstation, also there is a usage of privileged user to do daily routine operation.
 
+This is why the asset register, third-party application and user accounts list are required at the beginning of the assessment, you need to know how many system, user account both standard and privileged, where the privileged user to be used
