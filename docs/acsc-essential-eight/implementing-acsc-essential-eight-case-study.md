@@ -38,5 +38,11 @@ However, a couple of users still need to be excluded because of a requirement an
 -Device compliant<br>
 -Location filtering such as ip address<br>
 -Device ID filtering but device registering is required<br>
+![Device filter in Conditional access policy](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/images/cap-device-filter.png)
+
 
 With the filtering above, risk is mitigated.
+
+**Case study 2 - Restrict Admin Privilege issue**
+
+
