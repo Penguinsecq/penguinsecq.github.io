@@ -53,4 +53,9 @@ With the filterings above, risk is mitigated.<br>
 
 There is no documented and approved list of privileged accounts, processes and procedures that outline the requirements for provisioning privileged accounts. Also, a privileged MS365 users have accessed some users’ workstation, also there is a usage of privileged user to do daily routine operation.
 
-This is why the asset register, third-party application and user accounts list are required at the beginning of the assessment, you need to know how many system, user account both standard and privileged, where the privileged user to be used
+This is why the asset register, third-party application and user accounts list are required at the beginning of the assessment, you need to know
+- How many system (Windows, Network devices, Applications
+- How many User accounts both standard and privileged,
+- Where the privileged user to be used,
+- which systems got accessed by the privileged user (I will talk about this in next article)
+
