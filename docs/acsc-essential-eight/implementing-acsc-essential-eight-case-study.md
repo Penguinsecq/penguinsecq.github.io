@@ -107,7 +107,7 @@ Export and save a copy of your final AppLocker policies for rollback or document
 
 Enable Enforcement (Final Step):
 Switch AppLocker from Audit Mode to Enforced Mode only after validating all business-critical apps are allowed.
-<img width="57" height="494" alt="image" src="https://github.com/user-attachments/assets/218270f3-1fb3-47f7-af78-ba5689a5fbe1" />
+
 
 
 
