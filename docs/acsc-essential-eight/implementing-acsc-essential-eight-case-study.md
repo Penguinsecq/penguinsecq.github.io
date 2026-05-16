@@ -15,12 +15,20 @@ Environment and Scope of Assessment:
 
 I am not focusing about Windows platform only, I wanted to take this opportunity to improve this organisation cybersecurity posture in overall, and wanted to initiate the cybersecurity standard for them, and my team members who also were the outsource staffs because I found that their system can be improved. If you follow this article to the end, you will see a lot of Information security policy and documents were created for the client.
 
-Background, I was both a system administrator and security (outsource), I started with researching information from ASD website below:
+Background, at the time, I was both a system administrator and security (outsource), I started with researching information from ASD website below:
 https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight
 
 I went through the assessment process guide, accumulate the assessment guidance information to **create a comprehensive checklist (excel file)**. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I **initiated the simple asset management process, and created the asset register** using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I **create the list of standard user accounts and privilege users** in MS365, Network devices, and third-party web application that the organisation have used.
 
-I started conducting the assessment on all in-scoped system by 
+So, the followings are the list of documents that I developed by myself by researching and utilising resources in the internet.
+- Information Security Policy
+- Identity Access Review Procedure
+- Privilege Access Request Management document
+- IT Disaster Recovery Plan
+- Cyber Incident Response Plan
+- End user Security Policy
+
+I conducted the assessment on all in-scoped systems by 
 - Reviewing the existence of processes,
 - Reviewing the effectiveness of controls, configuration
 - Reviewing relevant documents and reports,
