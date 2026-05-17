@@ -90,7 +90,7 @@ This section is the most challenging for me to accomplish the Essential 8 Maturi
 
 From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows">https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows</a>. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.  .
 
-So in this article, I am talking about using "AppLocker" and how to implement. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. [https://github.com/Penguinsecq/penguinsecq.github.io/tree/main/docs/acsc-essential-eight](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md)
+So in this article, I am talking about using "AppLocker" and how to implement. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. [Application Control in practice](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md)
 
 
 Monitor Event Logs:
