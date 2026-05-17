@@ -82,9 +82,11 @@ This is why the asset register, third-party application and user accounts list a
 
 **Case study 3 - Application Control issue**
 
-This section is the most challenging for me to accomplish the Essential 8 Maturity Level 1, even though I have a implementation plan because client's environment always is different. One of my client, they have many branches and they are in the middle of nowhere. If the application control do something wrong for example block "dll", "exe" or other file extensions which are necessary for the operating system. Windows will be crashed, and even though with the approval from the client, It's not a good idea. 
+This section is the most challenging for me to accomplish the Essential 8 Maturity Level 1, even though I have a implementation plan because client's environment always is different. You have to be very careful about this section because the application control can crash the operating system if necessary "exe", or "dll" files cannot be executed. Let's say your client has many branch in the middle of nowhere, you deploy the application control without solid testing, and end users encounter with the BOD.
 
 **Implementation**<br>
+
+In this article, I will talk about using "AppLocker" and how to implement. For maturity level 1, you can consider WDAC, AppLocker or third-party application control such as
 
 Monitor Event Logs:
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8004 (audit log of blocked executions).
