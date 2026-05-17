@@ -94,8 +94,8 @@ So, in this article, I am sharing how to implement "AppLocker" with MS Intune. Y
 
 1. Gathering required applications list as much as possible in your environment.
 2. Create your AppLocker control policies based list above.
-3. You can utilise the starter policy from NSA cyber here  [NSA AppLocker Guidance](https://github.com/nsacyber/AppLocker-Guidance)
-4. Deploy the policies in **Audit only** mode. You may need 2 versions for Windows 10 and 11. The deployment details is here. [AppLocker Deployment details(coming soon)](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/applocker-deployment-steps.md)
+3. You can utilise the starter policy from NSA cyber here  [NSA AppLocker Guidance (coming soon)!!!](https://github.com/nsacyber/AppLocker-Guidance)
+4. Deploy the policies in **Audit only** mode. You may need 2 versions for Windows 10 and 11. The deployment details is here. [AppLocker Deployment details (coming soon)!!!](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/applocker-deployment-steps.md)
 5. Monitor Event Logs for a while, depends on your environment, but I would suggest more than 4 weeks, if your business has application will be running monthly or quarterly only. 
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8003. You can find the important event id related to AppLocker here.
 [Using Event Viewer with AppLocker](https://learn.microsoft.com/pl-pl/windows/security/application-security/application-control/app-control-for-business/applocker/using-event-viewer-with-applocker)
