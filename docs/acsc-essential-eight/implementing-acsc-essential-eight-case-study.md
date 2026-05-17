@@ -111,7 +111,7 @@ Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppL
 11. Enable Enforcement mode.<br>
 
 <div align="center">
-<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/applocker-implement-flow.png" alt="AppLocker Implmentation diagram" style="border: 1px solid grey;">
+<img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/applocker-imp-flow.png" alt="AppLocker Implmentation diagram" style="border: 1px solid grey;">
   Figure 4 - AppLocker Implmentation diagram
 </div><br>
 
