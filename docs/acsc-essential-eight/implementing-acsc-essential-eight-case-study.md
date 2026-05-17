@@ -45,6 +45,7 @@ I found that MFA is not enforced for all some users. I created conditional acces
 
 <div align="center">
 <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png" alt="MFA Conditional Access Policy" style="border: 1px solid grey;">
+  Figure 1 - Example page of Conditional Access Policy
 </div><br>
 
 However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. The followings condition could be applied depending on your environment:
@@ -55,6 +56,7 @@ However, a couple of users still need to be excluded because of a requirement an
 -Device ID filtering but device registering is required<br>
 <div align="center">
 <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-device-filter.png" alt="Device filter in Conditional access policy" style="border: 1px solid grey;">
+  Figure 2 - More filter in conditional access policy
 </div><br>
 
 With the filterings above, risk is mitigated.<br>
@@ -95,19 +97,18 @@ From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app
 So, in this article, I am sharing how to implement "AppLocker" with MS Intune. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. [Application Control in practice](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md)
 
 1. Gathering required applications list as much as possible in your environment.
-2. Create your AppLocker control policies based list above.
-3. You can utilise the starter policy from NSA cyber here  [NSA AppLocker Guidance (coming soon)!!!](https://github.com/nsacyber/AppLocker-Guidance)
-4. Deploy the policies in **Audit only** mode. You may need 2 versions for Windows 10 and 11. The deployment details is here. [AppLocker Deployment details (coming soon)!!!](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/applocker-deployment-steps.md)
-5. Monitor Event Logs for a while, depends on your environment, but I would suggest more than 4 weeks, if your business has application will be running monthly or quarterly only. 
+2. Create your AppLocker control policies based list above. You can utilise the starter policy from NSA cyber here  [NSA AppLocker Guidance (coming soon)!!!](https://github.com/nsacyber/AppLocker-Guidance)
+3. Deploy the policies in **Audit only** mode. You may need 2 versions for Windows 10 and 11. The deployment details is here. [AppLocker Deployment details (coming soon)!!!](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/applocker-deployment-steps.md)
+4. Monitor Event Logs for a while, depends on your environment, but I would suggest more than 4 weeks, if your business has application will be running monthly or quarterly only. 
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8003. You can find the important event id related to AppLocker here.
 [Using Event Viewer with AppLocker](https://learn.microsoft.com/pl-pl/windows/security/application-security/application-control/app-control-for-business/applocker/using-event-viewer-with-applocker)
-7. Tuning AppLocker control policies. Update AppLocker rules to include any necessary exceptions or allow rules for trusted apps, vendors, or paths.
-8. Test on Pilot Devices: Apply refined policies to a small group of users or machines to confirm no legitimate software is impacted.
-9. Repeat Audit Cycle: Continue auditing and refining policies until no valid applications are reported as blocked.
-10. Inform staff of the upcoming changes, and provide a process for requesting access to blocked apps.
-11. Once confident in the rules, gradually move from audit to enforced mode using staged deployment.
-12. Export and save a copy of your final AppLocker policies for rollback or documentation.
-13. Enable Enforcement (Final Step)
+5. Tuning AppLocker control policies. Update AppLocker rules to include any necessary exceptions or allow rules for trusted apps, vendors, or paths.
+6. Test on Pilot Devices: Apply refined policies to a small group of users or machines to confirm no legitimate software is impacted.
+7. Repeat Audit Cycle (step 4-6).
+8. Inform staffs of the upcoming changes, and provide a process for requesting access to blocked apps.
+9. Once confident in the rules, gradually move from audit to enforced mode using staged deployment.
+10. Export and save a copy of your final AppLocker policies for rollback or documentation.
+11. Enable Enforcement mode.
 
 
 
