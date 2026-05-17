@@ -38,6 +38,8 @@ I conducted the assessment on all in-scoped systems by
 
 Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I sent the detaild finding report with executive summary to the client. The followings are the implementation challenges that I want to keep and share as valuable experience. Hope, it might be useful.
 
+_**Please note that you have to obtain management approval before changing any configuration or implementations below.**_
+
 **Case study 1 - Multi-factor authentication issue**
 I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA. 
 
@@ -99,36 +101,13 @@ So, in this article, I am sharing how to implement "AppLocker" with MS Intune. Y
 5. Monitor Event Logs for a while, depends on your environment, but I would suggest more than 4 weeks, if your business has application will be running monthly or quarterly only. 
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8003. You can find the important event id related to AppLocker here.
 [Using Event Viewer with AppLocker](https://learn.microsoft.com/pl-pl/windows/security/application-security/application-control/app-control-for-business/applocker/using-event-viewer-with-applocker)
-7. Tuning AppLocker control policies.
-8. 
-
-Review Audit Results:
-Identify which executables, scripts, installers, or packaged apps would be blocked if enforcement were enabled.
-
-Document Allowed Applications:
-Create a list of legitimate applications flagged during the audit for future whitelisting.
-
-Refine Rules:
-Update AppLocker rules to include any necessary exceptions or allow rules for trusted apps, vendors, or paths.
-
-Test on Pilot Devices:
-Apply refined policies to a small group of users or machines to confirm no legitimate software is impacted.
-
-Repeat Audit Cycle:
-Continue auditing and refining policies until no valid applications are reported as blocked.
-
-Educate Users:
-Inform staff of the upcoming changes, and provide a process for requesting access to blocked apps.
-
-Plan for Enforcement:
-Once confident in the rules, gradually move from audit to enforced mode using staged deployment.
-
-Backup Policies:
-Export and save a copy of your final AppLocker policies for rollback or documentation.
-
-Enable Enforcement (Final Step):
-Switch AppLocker from Audit Mode to Enforced Mode only after validating all business-critical apps are allowed.
-
+7. Tuning AppLocker control policies. Update AppLocker rules to include any necessary exceptions or allow rules for trusted apps, vendors, or paths.
+8. Test on Pilot Devices: Apply refined policies to a small group of users or machines to confirm no legitimate software is impacted.
+9. Repeat Audit Cycle: Continue auditing and refining policies until no valid applications are reported as blocked.
+10. Inform staff of the upcoming changes, and provide a process for requesting access to blocked apps.
+11. Once confident in the rules, gradually move from audit to enforced mode using staged deployment.
+12. Export and save a copy of your final AppLocker policies for rollback or documentation.
+13. Enable Enforcement (Final Step)
 
 
 
