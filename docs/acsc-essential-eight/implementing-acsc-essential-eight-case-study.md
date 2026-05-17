@@ -88,7 +88,7 @@ This section is the most challenging for me to accomplish the Essential 8 Maturi
 
 **Implementation**<br>
 
-From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows">. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.  .
+From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows">https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows</a>. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.  .
 
 So in this article, I will talk about using "AppLocker" and how to implement. 
 
