@@ -13,7 +13,7 @@ Environment and Scope of Assessment:
 - Third-party applications
 - Microsoft Intune endpoint management
 
-I am not focusing about Windows platform only, I wanted to take this opportunity to improve this organisation cybersecurity posture in overall, and wanted to initiate the cybersecurity standard for them, and my team members who also were the outsource staffs because I found that their system can be improved. If you follow this article to the end, you will see a lot of Information security policy and documents were created for the client.
+The Australian Signals Directorate's Essential Eight is a set of eight baseline mitigation strategies designed to protect Windows environments against cyber threats. However, in this article I am not focusing about Windows platform only because, I wanted to take this opportunity to improve this organisation cybersecurity posture in overall, and wanted to initiate the cybersecurity standard for them, and my team members who also were the outsource staffs because I found that their system can be improved. If you follow this article to the end, you will see a lot of Information security policy and documents were created for the client.
 
 Background, at the time, I was both a system administrator and security (outsource), I started with researching information from ASD website below:
 https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight
