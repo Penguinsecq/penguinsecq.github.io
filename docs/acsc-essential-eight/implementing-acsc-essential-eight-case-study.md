@@ -82,11 +82,19 @@ This is why the asset register, third-party application and user accounts list a
 
 **Case study 3 - Application Control issue**
 
+Application control is a security approach designed to protect against malicious code executing on systems. When this security approach is implemented, it ensures only approved code such as executables, software libraries, scripts, installers, and drivers is authorized to execute.
+
 This section is the most challenging for me to accomplish the Essential 8 Maturity Level 1, even though I have a implementation plan because client's environment always is different. You have to be very careful about this section because the application control can crash the operating system if necessary "exe", or "dll" files cannot be executed. Let's say your client has many branch in the middle of nowhere, you deploy the application control without solid testing, and end users encounter with the BOD.
 
 **Implementation**<br>
 
-In this article, I will talk about using "AppLocker" and how to implement. For maturity level 1, you can consider WDAC, AppLocker or third-party application control such as
+From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows">. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.  .
+
+So in this article, I will talk about using "AppLocker" and how to implement. 
+
+
+Maturity level 1 (ML1): can be achieved by using Microsoft AppLocker
+Maturity levels 2 and 3 (ML2 & ML3): can be achieved by using Microsoft Windows Defender Application Control. For accomplishingthe application control, you can consider WDAC, AppLocker or third-party application control
 
 Monitor Event Logs:
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8004 (audit log of blocked executions).
