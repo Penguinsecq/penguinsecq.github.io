@@ -90,9 +90,13 @@ This section is the most challenging for me to accomplish the Essential 8 Maturi
 
 From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows">https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows</a>. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.  .
 
-So in this article, I am talking about using "AppLocker" and how to implement. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. [Application Control in practice](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md)
+So, in this article, I am sharing how to implement "AppLocker" with MS Intune. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. [Application Control in practice](https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md)
 
+1. Gathering required applications list as much as possible in your environment.
+2. Create your AppLocker control policies based list above.
+3. You can utilise the starter policy from NSA cyber here  [NSA AppLocker Guidance](https://github.com/nsacyber/AppLocker-Guidance)
 
+ 
 Monitor Event Logs:
 Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppLocker for Event ID 8004 (audit log of blocked executions).
 
