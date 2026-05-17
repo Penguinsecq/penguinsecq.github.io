@@ -109,6 +109,8 @@ Check Event Viewer > Applications and Services Logs > Microsoft > Windows > AppL
 9. Once confident in the rules, gradually move from audit to enforced mode using staged deployment.
 10. Export and save a copy of your final AppLocker policies for rollback or documentation.
 11. Enable Enforcement mode.
-
-
+<div align="center">
+<img src="https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/images/applocker-implement-flow.png" alt="AppLocker Implmentation diagram" style="border: 1px solid grey;>
+  Figure 4 - AppLocker Implmentation diagram
+</div><br>
 
