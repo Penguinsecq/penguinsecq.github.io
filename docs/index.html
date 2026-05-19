@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowStrike - Infrastructure Security Engineering Portfolio</title>
+    <style>
+        /* ==========================================
+           1. PREMIUM LIGHT THEME & STRUCTURE
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f6f8; /* Premium clean canvas backdrop */
+            color: #171717;
+            line-height: 1.6;
+            padding: 0 0 40px 0;
+        }
+        .portfolio-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Top Decorative Profile Brand Strip */
+        .profile-brand-strip {
+            height: 100px;
+            background-color: #1E90FF; /* Primary Dodger Blue Banner background */
+            width: 100%;
+            margin-bottom: -50px; /* Pulls the profile panel upward seamlessly */
+        }
+
+        /* Engineering Dashboard Card Styles */
+        .tech-card {
+            background: #ffffff; /* Crisp white card fills */
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        /* Side dynamic accent highlight tabs */
+        .accent-edge-blue { border-left: 5px solid #1E90FF; }
+        .accent-edge-steel { border-left: 5px solid #4682B4; }
+        .accent-edge-gold { border-left: 5px solid #FFD700; }
+
+        /* ==========================================
+           2. EXECUTIVE PANEL PROFILE HEADER
+           ========================================== */
+        .hero-profile-panel {
+            padding: 40px 40px 24px 40px;
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            gap: 32px;
+            align-items: center;
+        }
+        .avatar-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 16px; /* Modern technical geometric corner layout */
+            background: linear-gradient(135deg, #1E90FF, #4682B4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 2.5rem;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .profile-main-details h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .profile-main-details .headline-tagline {
+            font-size: 1.15rem;
+            color: #00BFFF; /* Deep Sky Blue tagline focus */
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .profile-main-details .executive-bio {
+            color: #475569;
+            font-size: 1.05rem;
+            max-width: 720px;
+        }
+        .action-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .btn-action-primary {
+            background-color: #1E90FF;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background 0.2s ease;
+        }
+        .btn-action-primary:hover {
+            background-color: #00BFFF;
+        }
+
+        /* Horizontal Metadata Context Strip */
+        .horizontal-context-strip {
+            background-color: #f8fafc;
+            padding: 16px 40px;
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+        .strip-item strong {
+            color: #334155;
+        }
+
+        /* ==========================================
+           3. TWO-COLUMN ASYMMETRIC GRID
+           ========================================== */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* --- SIDEBAR WORKSPACE STYLES --- */
+        .sidebar-section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #4682B4; /* Steel Blue titles */
+            padding: 20px 20px 10px 20px;
+            font-weight: 700;
+        }
+        .sidebar-inner-content {
+            padding: 0 20px 20px 20px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .badge-grid-shelf {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 0 20px 20px 20px;
+        }
+        .mini-badge-cube {
+            width: 42px;
+            height: 42px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .mini-badge-cube.gold-tier {
+            border-color: #FFD700;
+            background-color: rgba(255, 215, 0, 0.08);
+        }
+
+        /* --- ENGINEERING FEEDS BLOCK (MAIN COLUMN) --- */
+        .main-feed-stream {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .section-pane-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Technical Interactive Article Feed Blocks */
+        .project-feed-block {
+            padding: 32px;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .project-feed-block:hover {
+            border-color: #4682B4;
+            background-color: #fdfefe;
+        }
+        .feed-item-meta {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 12px;
+        }
+        .feed-article-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        .feed-article-title a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+        .feed-article-title a:hover {
+            color: #1E90FF; /* Transitions cleanly to your brand Dodger Blue */
+        }
+        
+        /* Modern Tech Pill Labels */
+        .meta-pill-box {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .tech-pill {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #4682B4;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: ui-monospace, Consolas, monospace;
+            font-weight: 500;
+        }
+
+        /* Action Status Output Rows */
+        .interaction-metrics-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 16px;
+        }
+        .metric-group {
+            display: flex;
+            gap: 20px;
+        }
+        .metric-link {
+            color: #64748b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .metric-link:hover { color: #1f2937; }
+        .verification-success {
+            color: #008000; /* Signature Green success indicator */
+            font-weight: 700;
+        }
+
+        /* ==========================================
+           4. RESPONSIVE DESIGN CONTROLS
+           ========================================== */
+        @media(max-width: 960px) {
+            .hero-profile-panel {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 24px;
+                gap: 20px;
+            }
+            .avatar-frame { margin: 0 auto; }
+            .action-column { width: 100%; }
+            .horizontal-context-strip { padding: 20px; gap: 16px; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-brand-strip"></div>
+
+    <div class="portfolio-wrapper">
+
+        <header class="tech-card accent-edge-blue">
+            <div class="hero-profile-panel">
+                <div class="avatar-frame">SS</div>
+                <div class="profile-main-details">
+                    <h1>ShadowStrike</h1>
+                    <div class="headline-tagline">Systems Infrastructure & Security Engineer</div>
+                    <div class="executive-bio">
+                        Specializing in digital forensics, hands-on infrastructure defensive architectures, and security baseline engineering. Building script-driven automation suites to enforce strict system compliance matrix objectives.
+                    </div>
+                </div>
+                <div class="action-column">
+                    <a href="mailto:your-email@example.com" class="btn-action-primary">Initiate Contact</a>
+                </div>
+            </div>
+            
+            <div class="horizontal-context-strip">
+                <div class="strip-item">📍 <strong>Location:</strong> Perth, WA, Australia</div>
+                <div class="strip-item">💼 <strong>Current Scope:</strong> Security Technician & Auditor</div>
+                <div class="strip-item">🌐 <strong>Code Repository:</strong> <a href="https://github.com" style="color: #00BFFF; text-decoration: none;">github.com/ShadowStrike</a></div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            
+            <aside class="sidebar-workspace">
+                <div class="tech-card accent-edge-steel">
+                    
+                    <div class="sidebar-section-title">Validation Milestones</div>
+                    <div class="badge-grid-shelf">
+                        <div class="mini-badge-cube gold-tier" title="CRISC Certified Platform">🛡️</div>
+                        <div class="mini-badge-cube" title="Systems Automation Analyst">💻</div>
+                        <div class="mini-badge-cube" title="Infrastructure Auditor Profile">⚡</div>
+                        <div class="mini-badge-cube" title="SecOps Publisher Context">📝</div>
+                    </div>
+
+                    <div class="sidebar-section-title">Technical Domains</div>
+                    <div class="sidebar-inner-content">
+                        Python, PowerShell, Ruby · AXIOM, Nuix, XRY, iLEAPP/aLEAPP · System hardening automation, regulatory controls mapping.
+                    </div>
+
+                    <div class="sidebar-section-title">Active Engineering Track</div>
+                    <div class="sidebar-inner-content">
+                        Developing automated systems testing infrastructure configurations and building-in-public defensive tool designs.
+                    </div>
+
+                    <div class="sidebar-section-title">Target Engagements</div>
+                    <div class="sidebar-inner-content">
+                        Collaborating on custom scripting pipeline projects, network defense audits, and detailed forensic technical documentation writing tracks.
+                    </div>
+                </div>
+            </aside>
+
+            <main class="main-feed-stream">
+                <h2 class="section-pane-heading">📂 Monitored Engineering Logs</h2>
+
+                <article class="tech-card project-feed-block accent-edge-blue">
+                    <div class="feed-item-meta">
+                        <span>BY SHADOWSTRIKE</span>
+                        <span>•</span>
+                        <span>MAY 2026</span>
+                    </div>
+                    <h3 class="feed-article-title">
+                        <a href="posts/essential-eight-automation.html">Automating Essential Eight Compliance Checks with PowerShell</a>
+                    </h3>
+                    <div class="meta-pill-box">
+                        <span class="tech-pill">#powershell</span>
+                        <span class="tech-pill">#compliance-audit</span>
+                        <span class="tech-pill">#infrastructure-security</span>
+                    </div>
+                    <div class="interaction-metrics-row">
+                        <div class="metric-group">
+                            <a href="#" class="metric-link">🔥 <span>12 points</span></a>
+                            <a href="#" class="metric-link">💬 <span>Log Insight</span></a>
+                        </div>
+                        <div class="verification-success">✓ Pipeline Active</div>
+                    </div>
+                </article>
+
+                <article class="tech-card project-feed-block accent-edge-steel">
+                    <div class="feed-item-meta">
+                        <span>BY SHADOWSTRIKE</span>
+                        <span>•</span>
+                        <span>APRIL 2026</span>
+                    </div>
+                    <h3 class="feed-article-title">
+                        <a href="#">Mitigating Layer-2 Broadcast Storms and Traffic Floods on Enterprise Switches</a>
+                    </h3>
+                    <div class="meta-pill-box">
+                        <span class="tech-pill">#networking</span>
+                        <span class="tech-pill">#hardware-hardening</span>
+                        <span class="tech-pill">#mikrotik-defenses</span>
+                    </div>
+                    <div class="interaction-metrics-row">
+                        <div class="metric-group">
+                            <a href="#" class="metric-link">🔥 <span>8 points</span></a>
+                            <a href="#" class="metric-link">💬 <span>Log Insight</span></a>
+                        </div>
+                        <div class="verification-success">✓ Documented</div>
+                    </div>
+                </article>
+
+                <article class="tech-card project-feed-block accent-edge-gold">
+                    <div class="feed-item-meta">
+                        <span>BY SHADOWSTRIKE</span>
+                        <span>•</span>
+                        <span>MARCH 2026</span>
+                    </div>
+                    <h3 class="feed-article-title">
+                        <a href="#">Enforcing Conditional Access Architectures and Tenant-Wide MFA Geofencing</a>
+                    </h3>
+                    <div class="meta-pill-box">
+                        <span class="tech-pill">#m365-security</span>
+                        <span class="tech-pill">#cloud-identity</span>
+                        <span class="tech-pill">#zero-trust</span>
+                    </div>
+                    <div class="interaction-metrics-row">
+                        <div class="metric-group">
+                            <a href="#" class="metric-link">🔥 <span>15 points</span></a>
+                            <a href="#" class="metric-link">💬 <span>Log Insight</span></a>
+                        </div>
+                        <div class="verification-success">✓ Production Validated</div>
+                    </div>
+                </article>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
