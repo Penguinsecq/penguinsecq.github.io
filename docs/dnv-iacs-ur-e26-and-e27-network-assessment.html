@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenguinSecQ - CyberSecurity Blog</title>
+    <style>
+        /* ==========================================
+           1. CORE LAYOUT & STRUCTURE
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #171717;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+        
+        /* Master Grid Layout: Content + Right Sidebar */
+        .blog-wrapper {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 340px; /* Main body + DEV.to style right pane */
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Container styling for both Main Content and Sidebar Cards */
+        .main-content-card, .sidebar-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Top Decorative Accent Bars */
+        .color-accent-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #1E90FF 0%, #00BFFF 50%, #4682B4 100%);
+        }
+        .profile-accent-bar {
+            height: 12px;
+            background-color: #1E90FF; /* Primary Dodger Blue Card Header */
+        }
+
+        /* Main Content Inner Padding */
+        .blog-content {
+            padding: 40px;
+        }
+
+        /* ==========================================
+           2. MAIN BODY CONTENT TYPOGRAPHY & HEADER
+           ========================================== */
+        header { margin-bottom: 35px; }
+        
+        /* New Author Meta Header Block Above Title */
+        .article-meta-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .meta-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E90FF, #4682B4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .meta-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.4;
+        }
+        .meta-author-name {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1rem;
+        }
+        .meta-publish-date {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        h1.article-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        .tag-list { display: flex; gap: 12px; flex-wrap: wrap; }
+        .blog-tag {
+            background-color: #f1f5f9;
+            color: #4682B4; /* Steel Blue */
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .blog-tag:hover {
+            background-color: #1E90FF;
+            color: #ffffff;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        p { margin-bottom: 22px; color: #334155; font-size: 1.1rem; }
+        ul { margin-left: 26px; margin-bottom: 22px; color: #334155; font-size: 1.1rem; }
+        li { margin-bottom: 8px; }
+        
+        /* Inline code and Code Blocks */
+        code:not(pre code) {
+            font-family: ui-monospace, Consolas, monospace;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 0.95rem;
+            margin: 25px 0;
+            border-top: 3px solid #4682B4; /* Steel Blue Accent */
+        }
+
+        /* Info Box */
+        .callout-panel {
+            background-color: #f8fafc;
+            border-left: 5px solid #1E90FF;
+            padding: 24px;
+            border-radius: 0 6px 6px 0;
+            margin: 30px 0;
+        }
+        .callout-panel h4 { color: #1E90FF; margin-bottom: 8px; font-weight: 700; }
+
+        /* ==========================================
+           ELEMENT CORRECTIONS FROM OLD Style template (TABLES, IMAGES, QUOTES)
+           ========================================== */
+        
+        /* 1. Responsive & Beautiful Tables & Zebra-striped styles*/
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Softer shadow for depth */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1; /* Subtle border around the table */
+        }
+        th {
+            background: #4682b4;
+            color: #ffffff; /* High contrast white text */
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.03em; /* Slightly wider text spacing for readability */
+            text-transform: uppercase; /* Clean uppercase professional look */
+            font-size: 0.85rem; /* Slightly smaller font when uppercase looks sharper */
+            padding: 14px 16px;
+            /*border-bottom: 3px solid #1d4ed8; /* Darker blue bottom accent bar line */
+        }
+
+        tr {
+            background-color: #ffffff; /* Base row color (White) */
+        }
+        
+        /* This rule automatically applies a light blue tint to every even row */
+        tr:nth-child(even) {
+            background-color: #f1f7fe; /* Very soft light blue tint */
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        /* Interactive row highlighting */
+        tr:hover {
+            background-color: #f1f5f9;
+            transition: background-color 0.15s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* 2. Responsive Images with Layout Spacing */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 16px 0 24px 0;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 3. Sleek Blockquote styling */
+        blockquote {
+            background-color: #fffbeb; /* Light amber warning tint */
+            border-left: 4px solid #f59e0b; /* Amber accent bar */
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        blockquote p, blockquote {
+            color: #b45309; /* Dark amber text */
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           3. RIGHT SIDEBAR STYLES
+           ========================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .sidebar-card {
+            background: #ffffff;
+        }
+        .card-body {
+            padding: 24px;
+        }
+
+        /* Profile Specific Styles */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: -12px; /* Pulls slightly up towards the accent bar */
+            margin-bottom: 16px;
+        }
+        .profile-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E90FF, #4682B4); /* Matches the author avatar gradient */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem; /* Adjust text size slightly to match the look */
+        }
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .btn-follow {
+            display: block;
+            width: 100%;
+            background-color: #1E90FF; /* Dodger Blue Button */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: background 0.2s ease;
+        }
+        .btn-follow:hover {
+            background-color: #00BFFF; /* Deep Sky Blue Hover */
+        }
+        .profile-bio {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-top: 14px;
+        }
+        .meta-value {
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+
+        /* "More From" Feed Card Styles */
+        .feed-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #1e293b;
+        }
+        .feed-title span {
+            color: #4682B4; /* Blue highlight on username */
+        }
+        .feed-item {
+            padding: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            display: block;
+            text-decoration: none;
+            transition: background 0.15s ease;
+        }
+        .feed-item:last-child {
+            border-bottom: none;
+        }
+        .feed-item:hover {
+            background-color: #f8fafc;
+        }
+        .feed-item-heading {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 6px;
+            transition: color 0.2s ease;
+        }
+        .feed-item:hover .feed-item-heading {
+            color: #1E90FF; /* Text changes to Dodger Blue on hover */
+        }
+        .feed-item-tags {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* ==========================================
+           4. FOOTER & RESPONSIVENESS
+           ========================================== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            grid-column: span 2;
+        }
+
+        /* Collapse layout on tablets and mobile screens */
+        @media(max-width: 960px) {
+            .blog-wrapper {
+                grid-template-columns: 1fr; /* Switch to single column stack */
+            }
+            .blog-content { padding: 24px; }
+            h1.article-title { font-size: 2rem; }
+            footer { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-wrapper">
+        
+        <main class="main-content-card">
+            <div class="color-accent-bar"></div>
+            <article class="blog-content">
+                <header>
+                    <div class="article-meta-header">
+                        <div class="meta-avatar">SS</div>
+                        <div class="meta-text-block">
+                            <span class="meta-author-name">PenguinSecQ</span>
+                            <span class="meta-publish-date">Posted on Apr 26, 2026</span>
+                        </div>
+                    </div>
+
+                    <h1 class="article-title">DNV IACS UR E26 and E27 Network Assessment</h1>
+                    <div class="tag-list">
+                        <a href="#" class="blog-tag">#ot security</a>
+                        <a href="#" class="blog-tag">#security assessment</a>
+                        <a href="#" class="blog-tag">#network security</a>
+                    </div>
+                </header>
+
+                <p>Just had a chance to carry on a grey-box network level penetration testing project for a company in Australia. It's just a small project with 5-6 days of testing but the reason I am writing this blog is want to keep the knowledge in my head as usual. Some information will be hidden for privacy of the customer reason.</p>
+
+                <p>The project scope is penetration testing for the the network devices connected with IP network in the safety related dedicated system and no internet connection to this closed system at all.</p>
+
+                <p>Additionally, the dedicated system is separated at all from the location that it will be installed. So, I and team don't need to worry about the location network environment.</p>
+
+                <p>I will categorize the network devices installed on the dedicated system as followings:</p>
+
+                <h6>1. Main safety related dedicated system including:</h6>
+                <ul>
+                    <li>XXX (intentionally hidden)</li>
+                    <li>YYY (intentionally hidden)</li>
+                    <li>ZZZ (intentionally hidden)</li>
+                </ul>
+                    
+                <h6>2. IP Network devices including:</h6>
+                <ul>
+                    <li>Mikrotik switch and Firewall,</li>
+                    <li>Unifi AP, and clients (iPad)</li>
+                    <li>Small Windows computer.</li>
+                </ul>
+
+                <p><strong>Because I don't know the exact reason why the customer need to do penetration testing for the this dedicated system. So this blog is my opinion only. As the dedicated system will be installed on (hidden location) and the system is treated as safety equipment used for (hidden) which is regulated. So, they need to comply with some regulation or standard and get certified before they can sell it as a commercial product.</strong></p>
+
+                <p>At the beginning, the customer provide with bullets of testing requirement generated from ChatGPT which summarise the cybersecurity requirements from (hidden organisation) society which based on the cyber security standard. They did this because they don't have any idea about doing the cyber testing.</p>
+
+                <p>I had to request the documents relating to the standard and research more on the internet for the followings:</p>
+                <ul>
+                    <li>DNV Cyber Secure</li>
+                    <li>IACS Cybersecurity Framework including Unified Requirements E26 &amp; E27 which borrow cybersecurity concepts and controls from IEC 62443-3-3.</li>
+                </ul>
+
+                <p>Note: The IACS UR E26 &amp; E27(Industrial Automation and Control Systems) are cybersecurity requirements that became mandatory for new ships &amp; vessels after 1st July 2024.</p>
+
+                <pre style="background-color: #0f172a; color: #f8fafc; padding: 20px; border-radius: 6px; font-family: ui-monospace, Consolas, monospace; font-size: 0.95rem; border-top: 3px solid #4682B4;">IEC 62443-3-3 (provides cybersecurity controls)
+                    |
+                    V
+    IACS UR E26 (Applies controls to ship system)
+                    |
+                    V
+IACS UR E27 (Applies controls to onboard system and supplier)</pre>
+
+                <p>As I don't have experience and I'm not certified to conduct OT penetration testing, this project will just align with the IEC 62443 standard. The customer might need to send all relevant documents to DNV to get certified.</p>
+
+                <p>Below are summary information from internet:</p>
+
+                <h3>E27 vs. E26</h3>
+                <p>It is important to note the difference between the two IACS Unified Requirements (URs):</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th><strong>Requirement</strong></th>
+                            <th><strong>Focus/Scope</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>IACS UR E27</strong> (30/41 Capabilities)</td>
+                            <td><strong>System-Level:</strong> Applies to the security of individual <strong>Computer Based Systems (CBS)</strong> and equipment.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IACS UR E26</strong></td>
+                            <td><strong>Ship-Level:</strong> Applies to the cyber resilience of the <strong>ship as a whole</strong>, including network segmentation (Zones and Conduits), risk assessment, and incident response procedures.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                 
+                <p><strong>Systems connecting to untrusted networks</strong> (interfaces that cross a network boundary to an untrusted zone) must meet the <strong>30 Core Capabilities</strong> plus <strong>11 additional capabilities</strong>, bringing their total to <strong>41</strong> requirements.</p>
+                 
+                <h3>IACS UR E27 Requirements</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SI No</th>
+                            <th>URs</th>
+                            <th>Objective</th>
+                            <th>Requirements</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>E27</td>
+                            <td>Human user<br>identification and<br>authentication</td>
+                            <td>The CBS shall identify and authenticate all human users who<br>can access the system directly or through interfaces<br>(IEC 62443-3-3/SR 1.1)</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>E27</td>
+                            <td>Account<br>management</td>
+                            <td>The CBS shall provide the capability to support the<br>management of all accounts by authorized users, including<br>adding, activating, modifying, disabling and removing account<br>(IEC 62443-3-3/SR 1.3)</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>E27</td>
+                            <td>Identifier<br>management</td>
+                            <td>The CBS shall provide the capability to support the<br>management of identifiers by user, group and role.<br>(IEC 62443-3-3/SR 1.4)</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>E27</td>
+                            <td>Authenticator<br>management</td>
+                            <td>The CBS shall provide the capability to:<br>- Initialize authenticator content<br>- Change all default authenticators upon control system<br>installation<br>- Change/refresh all authenticators<br>- Protect all authenticators from unauthorized disclosure<br>and modification when stored and transmitted.<br>(IEC 62443-3-3/SR 1.5)</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>E27</td>
+                            <td>Wireless access<br>management</td>
+                            <td>The CBS shall provide the capability to identify and<br>authenticate all users (humans, software processes or<br>devices) engaged in wireless communication<br>(IEC 62443-3-3/SR 1.6)</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>E27</td>
+                            <td>Strength of<br>password-based<br>authentication</td>
+                            <td>The CBS shall provide the capability to enforce configurable password strength based on minimum length and variety of character types. (IEC 62443-3-3/SR 1.7)</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>E27</td>
+                            <td>Authenticator<br>feedback</td>
+                            <td>The CBS shall obscure feedback during the authentication<br>process.<br>(IEC 62443-3-3/SR 1.10)</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>E27</td>
+                            <td>Authorization enforcement</td>
+                            <td>On all interfaces, human users shall be assigned authorizations in accordance with the principles of segregation of duties and least privilege. (IEC 62443-3-3/SR 2.1)</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>E27</td>
+                            <td>Wireless use<br>control</td>
+                            <td>The CBS shall provide the capability to authorize, monitor<br>and enforce usage restrictions for wireless connectivity to the<br>system according to commonly accepted security industry<br>practices<br>(IEC 62443-3-3/SR 2.2)</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>E27</td>
+                            <td>Use control for<br>portable and<br>mobile devices</td>
+                            <td>When the CBS supports use of portable and mobile devices,<br>the system shall include the capability to<br>a) Limit the use of portable and mobile devices only to those<br>permitted by design<br>b) Restrict code and data transfer to/from portable and<br>mobile devices<br>Note: Port limits / blockers (and silicone) could be accepted<br>for a specific system<br>(IEC 62443-3-3/SR 2.3)</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>E27</td>
+                            <td>Mobile Code</td>
+                            <td>The CBS shall control the use of mobile code such as java scripts, ActiveX and PDF.<br>(IEC62443-3-3/SR2.4)</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>E27</td>
+                            <td>Session lock</td>
+                            <td>The CBS shall be able to prevent further access after a<br>configurable time of inactivity or following activation of manual<br>session lock.<br>(IEC 62443-3-3/SR 2.5)</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>E27</td>
+                            <td>Auditable events</td>
+                            <td>The CBS shall generate audit records relevant to security for<br>at least the following events: access control, operating<br>system events, backup and restore events, configuration<br>changes, loss of communication.<br>(IEC 62443-3-3/SR 2.8)</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>E27</td>
+                            <td>Audit storage<br>capacity</td>
+                            <td>The CBS shall provide the capability to allocate audit record<br>storage capacity according to commonly recognized<br>recommendations for log management. Auditing mechanisms<br>shall be implemented to reduce the likelihood of such<br>capacity being exceeded.<br>(IEC 62443-3-3/SR 2.9)</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>E27</td>
+                            <td>Response to audit<br>processing failures</td>
+                            <td>The CBS shall provide the capability to prevent loss of<br>essential services and functions in the event of an audit<br>processing failure.<br>(IEC 62443-3-3/SR 2.10)</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>E27</td>
+                            <td>Timestamps</td>
+                            <td>The CBS shall timestamp audit records.<br>(IEC 62443-3-3/SR 2.11</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>E27</td>
+                            <td>Communication<br>integrity</td>
+                            <td>The CBS shall protect the integrity of transmitted information.<br>Note: Cryptographic mechanisms shall be employed for<br>wireless networks.<br>(IEC 62443-3-3/SR 3.1)</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>E27</td>
+                            <td>Malicious code<br>protection</td>
+                            <td>The CBS shall provide capability to implement suitable<br>protection measures to prevent, detect and mitigate the<br>effects due to malicious code or unauthorized software. It<br>shall have the feature for updating the protection<br>mechanisms<br>(IEC 62443-3-3/SR 3.2)</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>E27</td>
+                            <td>Security<br>functionality<br>verification</td>
+                            <td>The CBS shall provide the capability to support verification of<br>the intended operation of security functions and report when<br>anomalies occur during maintenance<br>(IEC 62443-3-3/SR 3.3)</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>E27</td>
+                            <td>Deterministic<br>output</td>
+                            <td>The CBS shall provide the capability to set outputs to a<br>predetermined state if normal operation cannot be maintained<br>as a result of an attack. The predetermined state could be:<br>- Unpowered state<br>- Last-known value<br>- Fixed value<br>(IEC 62443-3-3/SR 3.6)</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>E26</td>
+                            <td>Network Segmentation</td>
+                            <td>SR 5.1</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>E26</td>
+                            <td>RE1 Physical network segmentation</td>
+                            <td>SR 5.1</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>E26</td>
+                            <td>Zone boundary protection</td>
+                            <td>SR 5.2</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>E26</td>
+                            <td>RE1 Deny by default</td>
+                            <td>SR 5.2</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>E26</td>
+                            <td>General purpose P2P</td>
+                            <td>SR 5.3</td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td>E26</td>
+                            <td>Application Partitioning</td>
+                            <td>SR 5.4</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>E27</td>
+                            <td>Confidentiality of "sensitive" information</td>
+                            <td>The CBS shall provide the capability to protect the<br>confidentiality of information for which explicit read<br>authorization is supported, whether at rest or in transit.<br>Note: For wireless network, cryptographic mechanisms shall<br>be employed to protect confidentiality of all information in<br>transit.<br>(IEC 62443-3-3/SR 4.1)</td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>E27</td>
+                            <td>Use of<br>cryptography</td>
+                            <td>If cryptography is used, the CBS shall use cryptographic<br>algorithms, key sizes and mechanisms according to<br>commonly accepted security industry practices and<br>recommendations.<br>(IEC 62443-3-3/SR 4.3</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>E27</td>
+                            <td>Audit log<br>accessibility</td>
+                            <td>The CBS shall provide the capability for accessing audit logs<br>on read only basis by authorized humans and/or tools.<br>(IEC 62443-3-3/SR 6.1)</td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>E27</td>
+                            <td>Denial of service<br>protection</td>
+                            <td>The CBS shall provide the minimum capability to maintain<br>essential functions during DoS events.<br>(IEC 62443-3-3/SR 7.1)</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>E27</td>
+                            <td>Resource<br>management</td>
+                            <td>The CBS shall provide the capability to limit the use of<br>resources by security functions to prevent resource<br>exhaustion.<br>(IEC 62443-3-3/SR 7.2)</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>E27</td>
+                            <td>System backup</td>
+                            <td>The identity and location of critical files and the ability to<br>conduct backups of user-level and system-level information<br>(including system state information) shall be supported by the<br>CBS without affecting normal operations<br>(IEC 62443-3-3/SR 7.3)</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>E27</td>
+                            <td>System recovery<br>and reconstitution</td>
+                            <td>The CBS shall provide the capability to be recovered and<br>reconstituted to a known secure state after a disruption or<br>failure.<br>(IEC 62443-3-3/SR 7.4)</td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>E27</td>
+                            <td>Emergency power</td>
+                            <td>The control system shall provide the capability to switch to<br>and from an emergency power supply without affecting the<br>existing security state or a documented degraded mode.<br>(IEC 62443-3-3/SR 7.5)</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>E27</td>
+                            <td>Network and<br>security<br>configuration<br>settings</td>
+                            <td>The CBS traffic shall provide the capability to be configured<br>according to recommended network and security<br>configurations as described in guidelines provided by the<br>control system supplier. The CBS shall provide an interface to<br>the currently deployed network and security configuration<br>settings.<br>(IEC 62443-3-3/SR 7.6)</td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td>E27</td>
+                            <td>Least Functionality</td>
+                            <td>The installation, the availability and the access rights of the<br>following shall be limited to the strict needs of the functions<br>provided by the system:<br>- operating systems software components, processes and<br>services<br>- network services, ports, protocols, routes and hosts<br>accesses and any software<br>(IEC 62443-3-3/SR 7.7)</td>
+                        </tr>
+                        <tr>
+                            <td>37</td>
+                            <td>E27 (untrust network)</td>
+                            <td>RE2 Multifactor authentication (SL3)</td>
+                            <td>(IEC 62443-3-3/SR 1.1)</td>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Endpoint authentication (SL2)</td>
+                            <td>(IEC 62443-3-3/SR 1.2)</td>
+                        </tr>
+                        <tr>
+                            <td>39</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Unsuccessful login attempts (SL1)</td>
+                            <td>(IEC 62443-3-3/SR 1.11)</td>
+                        </tr>
+                        <tr>
+                            <td>40</td>
+                            <td>E27 (untrust network)</td>
+                            <td>System use notification (SL1)</td>
+                            <td>(IEC 62443-3-3/SR 1.12)</td>
+                        </tr>
+                        <tr>
+                            <td>41</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Access via untrusted networks (SL1)</td>
+                            <td>(IEC 62443-3-3/SR 1.13)</td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>E27 (untrust network)</td>
+                            <td>RE1 Explicit access approval (SL2)</td>
+                            <td>(IEC 62443-3-3/SR 1.13)</td>
+                        </tr>
+                        <tr>
+                            <td>43</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Remote session termination (SL2)</td>
+                            <td>(IEC 62443-3-3/SR 2.6)</td>
+                        </tr>
+                        <tr>
+                            <td>44</td>
+                            <td>E27 (untrust network)</td>
+                            <td>RE1 Cryptographic integrity prot. (SL3)</td>
+                            <td>(IEC 62443-3-3/SR 3.1)</td>
+                        </tr>
+                        <tr>
+                            <td>45</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Input validation (SL1)</td>
+                            <td>(IEC 62443-3-3/SR 3.5)</td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>E27 (untrust network)</td>
+                            <td>Session integrity (SL2)</td>
+                            <td>(IEC 62443-3-3/SR 3.8)</td>
+                        </tr>
+                        <tr>
+                            <td>47</td>
+                            <td>E27 (untrust network)</td>
+                            <td>RE1 Invalidation of session ID</td>
+                            <td>(IEC 62443-3-3/SR 3.8)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>As mentioned early, so the dedicated system must meet IACS UR E27's requirements (30 core capabilities) and there is no need to meet the extra 11 extended capabilities because the dedicated system doesn't have any network connection to untrust network or internet.</p>
+
+                <p>Testing checklist is available for education and reference only.</p>
+                <!--
+                <div class="callout-panel">
+                    <h4>Execution Scope Reminder</h4>
+                    <p>Always review local execution restrictions before performing administrative infrastructure baseline testing queries.</p>
+                </div>
+
+                <h2>Technical Implementation</h2>
+                <p>You can run structural deployment loops cleanly without sacrificing readability parameters inside the code containers:</p>
+
+<pre><code># Check system auditing states
+Get-AuditPolicy -Target "Application"</code></pre>
+                -->
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="sidebar-card">
+                <div class="profile-accent-bar"></div>
+                <div class="card-body">
+                    <div class="profile-header">
+                        <div class="profile-avatar">SS</div> 
+                        <div class="profile-name">PenguinSecQ</div>
+                    </div>
+                    
+                    <a href="#" class="btn-follow">Follow</a>
+                    
+                    <div class="profile-bio">
+                        Digital Forensics Specialist & cyber security practitioner. I write about DFIR, mobile forensics, and security tooling.
+                    </div>
+                    
+                    <div class="meta-label">Location</div>
+                    <div class="meta-value">Perth, Australia</div>
+                    
+                    <div class="meta-label">Work</div>
+                    <div class="meta-value">Security Technician & Auditor</div>
+                    
+                    <div class="meta-label">Joined</div>
+                    <div class="meta-value">May 18, 2026</div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="feed-title">More from <span>PenguinSecQ</span></div>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">How to Build a HaveIBeenPwned Breach Auditor in Python</div>
+                    <div class="feed-item-tags">#python #security #cli</div>
+                </a>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">Why Diff Tools Lie: Detecting Hidden File Changes with PowerShell Hash Verification</div>
+                    <div class="feed-item-tags">#powershell #security #devops</div>
+                </a>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">Configuring Layer 2 Broadcast Storm Defenses on Network Switches</div>
+                    <div class="feed-item-tags">#networking #security #mikrotik</div>
+                </a>
+            </div>
+
+        </aside>
+
+        <footer>
+            <p>&copy; 2026 • Built with Custom DEV.to Left-Right Clean Split Architecture</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
