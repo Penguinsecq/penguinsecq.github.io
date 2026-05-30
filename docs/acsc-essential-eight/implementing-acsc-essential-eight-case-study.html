@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenguinSecQ - CyberSecurity Blog</title>
+    <style>
+        /* ==========================================
+           1. CORE LAYOUT & STRUCTURE
+           ========================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #171717;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+        
+        /* Master Grid Layout: Content + Right Sidebar */
+        .blog-wrapper {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 340px; /* Main body + DEV.to style right pane */
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Container styling for both Main Content and Sidebar Cards */
+        .main-content-card, .sidebar-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Top Decorative Accent Bars */
+        .color-accent-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #1E90FF 0%, #00BFFF 50%, #4682B4 100%);
+        }
+        .profile-accent-bar {
+            height: 12px;
+            background-color: #1E90FF; /* Primary Dodger Blue Card Header */
+        }
+
+        /* Main Content Inner Padding */
+        .blog-content {
+            padding: 40px;
+        }
+
+        /* ==========================================
+           2. MAIN BODY CONTENT TYPOGRAPHY & HEADER
+           ========================================== */
+        header { margin-bottom: 35px; }
+        
+        /* New Author Meta Header Block Above Title */
+        .article-meta-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .meta-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E90FF, #4682B4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .meta-text-block {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.4;
+        }
+        .meta-author-name {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1rem;
+        }
+        .meta-publish-date {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        h1.article-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        .tag-list { display: flex; gap: 12px; flex-wrap: wrap; }
+        .blog-tag {
+            background-color: #f1f5f9;
+            color: #4682B4; /* Steel Blue */
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .blog-tag:hover {
+            background-color: #1E90FF;
+            color: #ffffff;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        p { margin-bottom: 22px; color: #334155; font-size: 1.1rem; }
+        ul { margin-left: 26px; margin-bottom: 22px; color: #334155; font-size: 1.1rem; }
+        li { margin-bottom: 8px; }
+        
+        /* Inline code and Code Blocks */
+        code:not(pre code) {
+            font-family: ui-monospace, Consolas, monospace;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: ui-monospace, Consolas, monospace;
+            font-size: 0.95rem;
+            margin: 25px 0;
+            border-top: 3px solid #4682B4; /* Steel Blue Accent */
+        }
+
+        /* Info Box */
+        .callout-panel {
+            background-color: #f8fafc;
+            border-left: 5px solid #1E90FF;
+            padding: 24px;
+            border-radius: 0 6px 6px 0;
+            margin: 30px 0;
+        }
+        .callout-panel h4 { color: #1E90FF; margin-bottom: 8px; font-weight: 700; }
+
+        /* ==========================================
+           ELEMENT CORRECTIONS FROM OLD Style template (TABLES, IMAGES, QUOTES)
+           ========================================== */
+        
+        /* 1. Responsive & Beautiful Tables & Zebra-striped styles*/
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Softer shadow for depth */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1; /* Subtle border around the table */
+        }
+        th {
+            background: #4682b4;
+            color: #ffffff; /* High contrast white text */
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.03em; /* Slightly wider text spacing for readability */
+            text-transform: uppercase; /* Clean uppercase professional look */
+            font-size: 0.85rem; /* Slightly smaller font when uppercase looks sharper */
+            padding: 14px 16px;
+            /*border-bottom: 3px solid #1d4ed8; /* Darker blue bottom accent bar line */
+        }
+
+        tr {
+            background-color: #ffffff; /* Base row color (White) */
+        }
+        
+        /* This rule automatically applies a light blue tint to every even row */
+        tr:nth-child(even) {
+            background-color: #f1f7fe; /* Very soft light blue tint */
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        /* Interactive row highlighting */
+        tr:hover {
+            background-color: #f1f5f9;
+            transition: background-color 0.15s ease;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 2. Responsive Images with Layout Spacing */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 16px 0 24px 0;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* 3. Sleek Blockquote styling */
+        blockquote {
+            background-color: #fffbeb; /* Light amber warning tint */
+            border-left: 4px solid #f59e0b; /* Amber accent bar */
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        blockquote p, blockquote {
+            color: #b45309; /* Dark amber text */
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           3. RIGHT SIDEBAR STYLES
+           ========================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .sidebar-card {
+            background: #ffffff;
+        }
+        .card-body {
+            padding: 24px;
+        }
+
+        /* Profile Specific Styles */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: -12px; /* Pulls slightly up towards the accent bar */
+            margin-bottom: 16px;
+        }
+        .profile-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E90FF, #4682B4); /* Matches the author avatar gradient */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem; /* Adjust text size slightly to match the look */
+        }
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .btn-follow {
+            display: block;
+            width: 100%;
+            background-color: #1E90FF; /* Dodger Blue Button */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: background 0.2s ease;
+        }
+        .btn-follow:hover {
+            background-color: #00BFFF; /* Deep Sky Blue Hover */
+        }
+        .profile-bio {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+        .meta-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin-top: 14px;
+        }
+        .meta-value {
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+
+        /* "More From" Feed Card Styles */
+        .feed-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #1e293b;
+        }
+        .feed-title span {
+            color: #4682B4; /* Blue highlight on username */
+        }
+        .feed-item {
+            padding: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            display: block;
+            text-decoration: none;
+            transition: background 0.15s ease;
+        }
+        .feed-item:last-child {
+            border-bottom: none;
+        }
+        .feed-item:hover {
+            background-color: #f8fafc;
+        }
+        .feed-item-heading {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 6px;
+            transition: color 0.2s ease;
+        }
+        .feed-item:hover .feed-item-heading {
+            color: #1E90FF; /* Text changes to Dodger Blue on hover */
+        }
+        .feed-item-tags {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* ==========================================
+           4. FOOTER & RESPONSIVENESS
+           ========================================== */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            grid-column: span 2;
+        }
+
+        /* Collapse layout on tablets and mobile screens */
+        @media(max-width: 960px) {
+            .blog-wrapper {
+                grid-template-columns: 1fr; /* Switch to single column stack */
+            }
+            .blog-content { padding: 24px; }
+            h1.article-title { font-size: 2rem; }
+            footer { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-wrapper">
+        
+        <main class="main-content-card">
+            <div class="color-accent-bar"></div>
+            <article class="blog-content">
+                <header>
+                    <div class="article-meta-header">
+                        <div class="meta-avatar">SS</div>
+                        <div class="meta-text-block">
+                            <span class="meta-author-name"><a href="https://penguinsecq.github.io">PenguinSecQ</a></span>
+                            <span class="meta-publish-date">Posted on Apr 26, 2026</span>
+                        </div>
+                    </div>
+
+                    <h1 class="article-title">From Assessment to Remediation: Implementing the ACSC Essential Eight in a Real Environment</h1>
+                </header>
+
+                <p>From Assessment to Remediation: Implementing the ACSC Essential Eight in a Real Environment</p>
+
+                <p>In August 2024, I initiated and completed a comprehensive assessment against the Australian Cyber Security Centre Essential Eight framework to identify security gaps and improvement opportunities.</p>
+
+                <p>Since then, I have been leading in ongoing remediation efforts to strengthen security controls across. This project has provided interesting practical experience for me.</p>
+
+                <p>Environment and Scope of Assessment:</p>
+                <ul>
+                    <li>Medium-sized organization</li>
+                    <li>Target: Maturity level 1</li>
+                    <li>Microsoft 365 cloud-first</li>
+                    <li>On-prem network devices</li>
+                    <li>Third-party applications</li>
+                    <li>Microsoft Intune endpoint management</li>
+                </ul>
+
+                <p>The Australian Signals Directorate's Essential Eight is a set of eight baseline mitigation strategies designed to protect Windows environments against cyber threats. However, in this article I am not focusing about Windows platform only because, I wanted to take this opportunity to improve this organisation cybersecurity posture in overall, and wanted to initiate the cybersecurity standard for them and my team members who also were the outsource staffs. I found that their system can be improved. If you follow this article to the end, you will see a lot of Information security policy and documents were created for the client.</p>
+
+                <p>Background, at the time, I was both a system administrator and security (outsource), I started with researching information from ASD website below:<br>
+                <a href="https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight" target="_blank">https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/essential-eight</a></p>
+
+                <p>I went through the assessment process guide, accumulate the assessment guidance information to <strong>create a comprehensive checklist (excel file)</strong>. Since, I started looking after this organisation in mid 2024, I came across that they did not have asset and inventory register, therefore, I <strong>initiated the simple asset management process, and created the asset register</strong> using Microsoft List which is an app in MS365. I have spent a couple of months to collect necessary asset details. Additionally, I <strong>create the list of standard user accounts and privilege users</strong> in MS365, Network devices, and third-party web application that the organisation have used.</p>
+
+                <p>So, the followings are the list of documents that I developed by myself by researching and utilising resources in the internet.</p>
+                <ul>
+                    <li>Information Security Policy</li>
+                    <li>Identity Access Review Procedure</li>
+                    <li>Privilege Access Request Management document</li>
+                    <li>IT Disaster Recovery Plan</li>
+                    <li>Cyber Incident Response Plan</li>
+                    <li>End user Security Policy</li>
+                </ul>
+
+                <p>I conducted the assessment on all in-scoped systems by</p>
+                <ul>
+                    <li>Reviewing the existence of processes,</li>
+                    <li>Reviewing the effectiveness of controls, configuration</li>
+                    <li>Reviewing relevant documents and reports,</li>
+                    <li>Vulnerability scanning</li>
+                    <li>Interviewing and surveys.</li>
+                    <li>etc.</li>
+                </ul>
+
+                <p>Any assessment evidences, limitataions, screenshots and constraints on testing were documented within the finding summary report. I sent the detaild finding report with executive summary to the client. The followings are the implementation challenges that I want to keep and share as valuable experience. Hope, it might be useful.</p>
+
+                <p><em><strong>Please note that you have to obtain management approval before changing any configuration or implementations below.</strong></em></p>
+
+                <h2>Case study 1 - Multi-factor authentication issue</h2>
+                <p>I found that MFA is not enforced for all some users. I created conditional access policy to enforce all users to be required the MFA.</p>
+
+                <div style="text-align: center; margin: 24px 0;">
+                    <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-mfa1.png" alt="MFA Conditional Access Policy" style="border: 1px solid grey; max-width: 100%; height: auto; display: inline-block;"><br>
+                    <span style="font-size: 0.95rem; color: #64748b;">Figure 1 - Example page of Conditional Access Policy</span>
+                </div>
+
+                <p>However, a couple of users still need to be excluded because of a requirement and a bit technical constraints. To mitigate the risk of not having MFA enabled for the accounts, after excluding them from the MFA policy. The followings condition could be applied depending on your environment:</p>
+
+                <p><strong>Mitigation</strong></p>
+                <ul>
+                    <li>Device compliant</li>
+                    <li>Location filtering such as ip address</li>
+                    <li>Device ID filtering but device registering is required</li>
+                </ul>
+
+                <div style="text-align: center; margin: 24px 0;">
+                    <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/cap-device-filter.png" alt="Device filter in Conditional access policy" style="border: 1px solid grey; max-width: 100%; height: auto; display: inline-block;"><br>
+                    <span style="font-size: 0.95rem; color: #64748b;">Figure 2 - More filter in conditional access policy</span>
+                </div>
+
+                <p>With the filterings above, risk is mitigated.</p>
+
+                <h2>Case study 2 - Restrict Admin Privilege issue</h2>
+                <p>There is no documented and approved list of privileged accounts, processes and procedures that outline the requirements for provisioning privileged accounts. Also, a privileged MS365 users have accessed some users’ workstation, also there is a usage of privileged user to do daily routine operation.</p>
+
+                <p>This is why the asset register, third-party application and user accounts list are required at the beginning of the assessment, you need to know</p>
+                <ul>
+                    <li>How many system (Windows, Network devices, Applications</li>
+                    <li>How many User accounts both standard and privileged,</li>
+                    <li>Where the privileged user to be used,</li>
+                    <li>which systems got accessed by the privileged user (I will talk about this in next article)</li>
+                </ul>
+
+                <p><strong>Implementation</strong></p>
+                <ul>
+                    <li>Create Privilege Access Request Procedure and document.</li>
+                    <li>I used Microsoft Forms to create a Privilege access request form. Actually, you can utilise the Privilege Access Management in MS365 for this issue if you have a required license (Microsoft 365 E5 (no Teams), Office 365 E5, Microsoft 365 F5).</li>
+                    <li>Remove all local administrator user.</li>
+                    <li>After reviewing, remove unnecessary MS365 administrative users.</li>
+                    <li>Create new user for Intune enrollment only, not Global admin anymore.</li>
+                    <li>Create policy to prohibit MS365 global admin user to access or logon to any Entra joined workstation</li>
+                </ul>
+
+                <div style="text-align: center; margin: 24px 0;">
+                    <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/pam-procedures.png" alt="Privilege Access Management process" style="border: 1px solid grey; max-width: 100%; height: auto; display: inline-block;"><br>
+                    <span style="font-size: 0.95rem; color: #64748b;">Figure 3 - Privilege Access Request Procedures flow.</span>
+                </div>
+
+                <h2>Case study 3 - Application Control issue (In progress)</h2>
+                <p>Application control is a security approach designed to protect against malicious code executing on systems. When this security approach is implemented, it ensures only approved code such as executables, software libraries, scripts, installers, and drivers is authorized to execute.</p>
+
+                <p>This section is the most challenging for me to accomplish the Essential 8 Maturity Level 1, even though I have a implementation plan because client's environment always is different. You have to be very careful about this section because the application control can crash the operating system if necessary "exe", or "dll" files cannot be executed. Let's say your client has many branch in the middle of nowhere, you deploy the application control without solid testing, and end users encounter with the BOD.</p>
+
+                <p><strong>Implementation</strong></p>
+                <p>From Microsoft, <a href="https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows" target="_blank">https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#application-control-for-windows</a>. While WDAC is preferred, it can be simpler and easier for most organizations to achieve ML1 using just AppLocker as a starting point, both solutions are complimentary.</p>
+
+                <p>So, in this article, I am sharing how to implement "AppLocker" with MS Intune. You can find the comparison between WDAC and AppLocker to help you decide which one is appropriate for your environment here. <a href="https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/application-control-in-practice.md" target="_blank">Application Control in practice</a></p>
+
+                <ol style="margin-left: 26px; margin-bottom: 22px; color: #334155; font-size: 1.1rem;">
+                    <li style="margin-bottom: 8px;">Gathering required applications list as much as possible in your environment.</li>
+                    <li style="margin-bottom: 8px;">Create your AppLocker control policies based list above. You can utilise the starter policy from NSA cyber here <a href="https://github.com/nsacyber/AppLocker-Guidance" target="_blank">NSA AppLocker Guidance (coming soon)!!!</a></li>
+                    <li style="margin-bottom: 8px;">Deploy the policies in <strong>Audit only</strong> mode. You may need 2 versions for Windows 10 and 11. The deployment details is here. <a href="https://github.com/Penguinsecq/penguinsecq.github.io/blob/main/docs/acsc-essential-eight/applocker-deployment-steps.md" target="_blank">AppLocker Deployment details (coming soon)!!!</a></li>
+                    <li style="margin-bottom: 8px;">Monitor Event Logs for a while, depends on your environment, but I would suggest more than 4 weeks, if your business has application will be running monthly or quarterly only. Check Event Viewer &gt; Applications and Services Logs &gt; Microsoft &gt; Windows &gt; AppLocker for Event ID 8003. You can find the important event id related to AppLocker here. <a href="https://learn.microsoft.com/pl-pl/windows/security/application-security/application-control/app-control-for-business/applocker/using-event-viewer-with-applocker" target="_blank">Using Event Viewer with AppLocker</a></li>
+                    <li style="margin-bottom: 8px;">Tuning AppLocker control policies. Update AppLocker rules to include any necessary exceptions or allow rules for trusted apps, vendors, or paths.</li>
+                    <li style="margin-bottom: 8px;">Test on Pilot Devices: Apply refined policies to a small group of users or machines to confirm no legitimate software is impacted.</li>
+                    <li style="margin-bottom: 8px;">Repeat Audit Cycle (step 4-6).</li>
+                    <li style="margin-bottom: 8px;">Inform staffs of the upcoming changes, and provide a process for requesting access to blocked apps.</li>
+                    <li style="margin-bottom: 8px;">Once confident in the rules, gradually move from audit to enforced mode using staged deployment.</li>
+                    <li style="margin-bottom: 8px;">Export and save a copy of your final AppLocker policies for rollback or documentation.</li>
+                    <li style="margin-bottom: 8px;">Enable Enforcement mode.</li>
+                </ol>
+
+                <div style="text-align: center; margin: 24px 0;">
+                    <img src="https://github.com/Penguinsecq/penguinsecq.github.io/raw/main/docs/images/applocker-implement-diagram.png" alt="AppLocker Implmentation diagram" style="border: 1px solid grey; max-width: 100%; height: auto; display: inline-block;"><br>
+                    <span style="font-size: 0.95rem; color: #64748b;">Figure 4 - AppLocker Implmentation diagram</span>
+                </div>
+
+                <!--
+                <div class="callout-panel">
+                    <h4>Execution Scope Reminder</h4>
+                    <p>Always review local execution restrictions before performing administrative infrastructure baseline testing queries.</p>
+                </div>
+
+                <h2>Technical Implementation</h2>
+                <p>You can run structural deployment loops cleanly without sacrificing readability parameters inside the code containers:</p>
+
+<pre><code># Check system auditing states
+Get-AuditPolicy -Target "Application"</code></pre>
+                -->
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="sidebar-card">
+                <div class="profile-accent-bar"></div>
+                <div class="card-body">
+                    <div class="profile-header">
+                        <div class="profile-avatar">SS</div> 
+                        <div class="profile-name"><a href="https://penguinsecq.github.io">PenguinSecQ</a></div>
+                    </div>
+                    
+                    <!-- <a href="#" class="btn-follow">Follow</a> -->
+                    
+                    <div class="profile-bio">
+                        Penetration Tester & Cyber security practitioner. I write about offensive security, cybersecurity practice, standard and Network security.
+                    </div>
+                    
+                    <div class="meta-label">Location</div>
+                    <div class="meta-value">Perth, Australia</div>
+                    
+                    <div class="meta-label">Work</div>
+                    <div class="meta-value">Security Assessor, Auditor and Security operation admin. </div>
+                    
+                    <div class="meta-label">GitHub</div>
+                    <div class="meta-value"><a href="https://github.com/Penguinsecq" target="_blank" style="color: #00BFFF; text-decoration: none;">github.com/Penguinsecq</a></div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="feed-title">More from <span>PenguinSecQ</span></div>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">Coming soon!!</div>
+                    <div class="feed-item-tags">#python #security #cli</div>
+                </a>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">Coming soon!!</div>
+                    <div class="feed-item-tags">#powershell #security #devops</div>
+                </a>
+                
+                <a href="#" class="feed-item">
+                    <div class="feed-item-heading">Coming soon!!</div>
+                    <div class="feed-item-tags">#networking #security #mikrotik</div>
+                </a>
+            </div>
+
+        </aside>
+
+        <footer>
+            <p>&copy; 2026 • Built with Custom Left-Right Clean Split Architecture</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
